@@ -16,6 +16,9 @@ Page({
   getInfo(ops) {
     let url = '';
     // 1.机构 2.文章
+    if(ops["user_id"]){
+      bs.cache("otherUerId", ops["user_id"]);
+    }
     let target = ops.target;
     let arg = `user_id=${ops.user_id}&id=${ops.id}`;
     let tip = bs.cache("tip");

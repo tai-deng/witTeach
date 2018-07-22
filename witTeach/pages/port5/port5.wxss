@@ -113,6 +113,9 @@
 .ind-award-conent-i-titme{
     color: #999;
 }
+.ind-award-conent-i-tel{
+    margin-right: 20rpx;
+}
 .ind-award-conent-i-b{
     font-size: 20rpx;
     color:#666;
@@ -131,7 +134,7 @@
 }
 .ind-award-conent-i-state{
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 .ind-award-conent-i-b{
     font-size: 20rpx;

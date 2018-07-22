@@ -28,8 +28,6 @@ Page({
     this.getData(options.id);
     if (options["user_id"]) {
       this.setData({ isLogin: true, options })
-      // this.shareOrigin(options);
-      bs.cache("otherUerId", options["user_id"]);
     }
   },
   // 获取默认数据
@@ -123,29 +121,11 @@ Page({
     var name = this.data.name;
     var phone = this.data.phone;
     var that = this;
-    var id = bs.cache("schoolId");
+    var id = bs.cache("otherUerId");
     var orgtype_id = this.data.orgtype_id;
     if (/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,40}$/.test(name) && /^1[34578]\d{9}$/.test(phone)) {
       if (this.data.apply == 3) {
-        if (title && myreg.test(phone)) {
-          request.request({
-            site: "Complaint_post",
-            data: {
-              id: reason[index].id,
-              reason: reason[index].name,
-            }
-          }, function (res) {
-            that.payment();
-            that.setData({ data: res, flag: false })
-          })
-        } else {
-          if (!myreg.test(phone)) {
-            request.toast('请确认手机号码')
-          }
-          if (!title) {
-            request.toast('请确认姓名')
-          }
-        }
+        this.payment();
       }
       if(this.data.apply == 1){
         if (org) {
@@ -168,10 +148,11 @@ Page({
         }
       }
       if(this.data.apply == 2){
+        console.log("user_id--2",id)
         request.request({
           site: "Consultation",
           data: {
-            school_id: id,
+            user_id: id,
             name: name,
             tel:phone
           }
@@ -205,6 +186,7 @@ Page({
     let phone = this.data.phone;
     let price = this.data.price;
     let user_id = bs.cache("otherUerId");
+    console.log("user_id--1",user_id)
     wx.showNavigationBarLoading()
     request.request({
       site: "order_buy",
@@ -236,7 +218,7 @@ Page({
                   icon: 'success',
                   duration: 2000
                 });
-                that.setData({name:null,phone:null,org:null})
+                that.setData({name:null,phone:null,org:null,toast:2})
                 that.getData(that.data.id)
               }
             },

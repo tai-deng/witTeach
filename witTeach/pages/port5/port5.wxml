@@ -45,17 +45,11 @@
         <view class="ind-award-conent-i column"wx:for="{{data.share.sharelist}}"wx:key="*this">
             <view class="ind-award-conent-i-top flexrow">
                 <view class="ind-award-conent-i-title">{{item.title}}</view>
-                <!-- <view class="ind-award-conent-i-name">{{item.name}}</view> -->
+                <view class="ind-award-conent-i-tel row">{{item.name}}</view>
                 <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
-                <view class="ind-award-conent-i-state">
-                    <view class="ind-hx"wx:if="{{item.recommended_money}}">
-                        {{item.reading_money}}
-                    </view>
-                    <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
+                <view class="ind-award-conent-i-state row">
+                    {{item.reading_money}}
                 </view>
-            </view>
-            <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
-                <text class="row">投诉理由</text>{{item.complaint}}
             </view>
         </view>
     </view>
@@ -73,10 +67,10 @@
     <view class="ind-award-conent"wx:if="{{sel==2}}">
         <view class="ind-award-conent-i column"wx:for="{{data.recommend.recommendlist}}"wx:key="*this">
                 <view class="ind-award-conent-i-top flexrow">
-                    <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
                     <view class="ind-award-conent-i-name">{{item.name}}</view>
+                    <view class="ind-award-conent-i-tel">{{item.tel}}</view>
                     <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
-                    <view class="ind-award-conent-i-state">
+                    <view class="ind-award-conent-i-state row">
                         <view class="ind-hx"wx:if="{{item.state}}">
                             {{item.recommended_money}}
                         </view>
@@ -102,12 +96,12 @@
     <view class="ind-award-conent"wx:if="{{sel==3}}">
         <view class="ind-award-conent-i column"wx:for="{{data.make.makelist}}"wx:key="*this">
                 <view class="ind-award-conent-i-top flexrow">
-                    <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
                     <view class="ind-award-conent-i-name">{{item.name}}</view>
+                    <view class="ind-award-conent-i-tel">{{item.tel}}</view>
                     <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
-                    <view class="ind-award-conent-i-state">
+                    <view class="ind-award-conent-i-state row">
                         <view class="ind-hx"wx:if="{{item.state}}">
-                            {{item.consulting_money}}
+                            {{item.consulting_money ? item.consulting_money : 100}}
                         </view>
                         <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
                     </view>
@@ -131,8 +125,8 @@
     <view class="ind-award-conent"wx:if="{{sel==4}}">
         <view class="ind-award-conent-i column"wx:for="{{data.deal.rdeallist}}"wx:key="*this">
                 <view class="ind-award-conent-i-top flexrow">
-                    <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
                     <view class="ind-award-conent-i-name">{{item.name}}</view>
+                    <view class="ind-award-conent-i-tel">{{item.tel}}</view>
                     <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
                     <view class="ind-award-conent-i-state">
                         <view class="ind-hx"wx:if="{{item.clinch_money}}">
