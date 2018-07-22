@@ -64,7 +64,7 @@
         推荐机构
     </view>
     <view class="art-institution">
-        <view class="art-institution-i rows"wx:for="{{school}}"wx:key="*this">
+        <view class="art-institution-i rows"wx:for="{{school}}"wx:key="*this" data-id="{{item.id}}"bindtap="bindmore">
             <!-- <view class="art-institution-i-l flexrow"> -->
                 <view class="art-institution-i-pic">
                     <image src="{{item.image}}"></image>
@@ -80,12 +80,12 @@
                         {{item.content}}
                     </view>
                 </view>
-                <view class="art-institution-i-r row" data-id="{{item.id}}"bindtap="bindmore">
+                <!-- <view class="art-institution-i-r row" data-id="{{item.id}}"bindtap="bindmore">
                     了解更多
-                </view>
+                </view> -->
             <!-- </view> -->
         </view>
-        <view class="art-lookMore row"bindtap="bindlookMore">
+        <view class="art-lookMore row"bindtap="bindlookMore"wx:if="{{isMore}}">
             查看更多机构
         </view>
     </view>

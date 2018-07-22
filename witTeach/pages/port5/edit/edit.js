@@ -49,7 +49,6 @@ Page({
           is_on: that.data.isOn,
         }
       }, function (res) {
-        console.log(res)
           wx.showToast({
             title: '提交成功',
             icon: 'success',

@@ -71,11 +71,18 @@ Page({
   },
   // 抢购
   bindsale(e){
+    // var coursename = e.currentTarget.dataset.coursename;
+    // var price = e.currentTarget.dataset.price;
+    // this.setData({
+    //   flag:true,toast:1,apply:3,placeholder:"请输入姓名",
+    //   title:"购买课程",coursename,price
+    // })
     var coursename = e.currentTarget.dataset.coursename;
     var price = e.currentTarget.dataset.price;
+    var courseId = e.currentTarget.dataset.id;
     this.setData({
       flag:true,toast:1,apply:3,placeholder:"请输入姓名",
-      title:"购买课程",coursename,price
+      title:"购买课程",coursename,price,courseId
     })
   },
   // 导航
@@ -162,15 +169,7 @@ Page({
     console.log(org,title,phone)
     if (this.data.apply == 3) {
       if (title && myreg.test(phone)) {
-        request.request({
-          site: "Complaint_post",
-          data: {
-            id: reason[index].id,
-            reason: reason[index].name,
-          }
-        }, function (res) {
-          that.setData({ data: res, flag: false })
-        })
+        this.payment();
       } else {
         if (!myreg.test(phone)) {
           request.toast('请确认手机号码')
@@ -348,6 +347,60 @@ Page({
         console.log("记录分享点击",ops)
       })
   },
+  // 支付
+payment(e){
+  let that = this;
+  let courseId = this.data.courseId;
+  let coursename = this.data.coursename;
+  let name = this.data.name;
+  let phone = this.data.phone;
+  let price = this.data.price;
+  let user_id = bs.cache("user_id");
+  console.log("user_id--1",user_id)
+  wx.showNavigationBarLoading()
+  request.request({
+    site: "order_buy",
+    data: {
+      curriculum_id: courseId,
+      curriculum_title: coursename,
+
+      name:name,
+      tel: phone,
+      price: price,
+      user_id:user_id,
+    }
+  },function(res){
+      wx.hideNavigationBarLoading()
+      // if(res.status){
+        wx.showLoading({
+          title: '支付中',
+        })
+        var timeStamp = res.timeStamp.toString();
+        wx.requestPayment({
+          'timeStamp':timeStamp,
+          'nonceStr':res.nonceStr,
+          'package':res.package,
+          'signType':res.signType,
+          'paySign':res.paySign,
+          'success':function(res){
+            if (res.errMsg = "requestPayment:ok") {
+              wx.showToast({
+                title: '购买成功',
+                icon: 'success',
+                duration: 2000
+              });
+              that.setData({name:null,phone:null,org:null,toast:2})
+              that.getData(that.data.id)
+            }
+          },
+          'complete':function(e){
+            wx.hideLoading();
+          }
+        })
+      // }
+    }
+  )
+},
   onReady: function () {
   
   },

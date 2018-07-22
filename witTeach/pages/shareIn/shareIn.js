@@ -18,14 +18,15 @@ Page({
     // 1.机构 2.文章
     if(ops["user_id"]){
       bs.cache("otherUerId", ops["user_id"]);
+      this.shareOrigin(ops);
     }
     let target = ops.target;
     let arg = `id=${ops.id}&user_id=${ops.user_id}`;
     let tip = bs.cache("tip");
+
     if (target == "institution") {
       if (tip) {
         url = "../terrace/terrace?" + arg;
-        this.shareOrigin(ops);
       } else {
         url = '../index/index?' + arg;
       }
@@ -33,11 +34,12 @@ Page({
 
     if (target == "article") {
       if(tip){
-        this.shareOrigin(ops);
       }
       url = "../article/article?" + arg;
     }
+console.log(ops)
     console.log("url",url)
+
     try {
       wx.redirectTo({
         url, success() {
@@ -47,6 +49,7 @@ Page({
     } catch (error) {
       wx.showToast({title:error})
     }
+
   },
   // 分享分配
   shareOrigin(ops) {

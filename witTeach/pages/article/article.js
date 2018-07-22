@@ -118,12 +118,12 @@ Page({
    */
   onShareAppMessage: function () {
     var user_id = bs.cache("user_id")
-    var id = this.data.id;
-    console.log("----------------------------")
-    if (res.from === 'button') {
+    var id = Number(this.data.id);
+    console.log(user_id,"----------------------------",Number(id))
+    /* if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
-    }
+    } */
     return {
       imageUrl:"../imgs/a.jpg",
       title: '机器人培训班',

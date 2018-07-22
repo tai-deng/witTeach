@@ -26,8 +26,11 @@ Page({
   },
   binddetails(e) {
     let id = e.currentTarget.dataset.id;
+    // wx.navigateTo({
+    //   url:`active/active?id=${id}`
+    // })
     wx.navigateTo({
-      url:`active/active?id=${id}`
+      url:`../../article/article?id=${id}`
     })
   },
   onReady: function () {

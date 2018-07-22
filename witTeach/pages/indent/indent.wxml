@@ -8,7 +8,7 @@
     </view>
     <view class="ind-clss">
         <view class="ind-clss-i flexrow"wx:for="{{data.curriculum}}"wx:key="*this">
-            <view class="ind-levy-i row"catchtap="bindnotSee"data-id="{{item.id}}"data-index="{{index}}">
+            <view class="ind-levy-i row"catchtap="bindnotSee"data-id="{{item.name_id}}"data-index="{{index}}">
                 {{item.name}}
                 <text class="row">{{item.numbers}}</text>
             </view>
