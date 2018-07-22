@@ -1,0 +1,41 @@
+<!--pages/port3/port3C/port3C.wxml-->
+<view class="container">
+    <view class="totals"wx:id="{{data[0]}}">
+        <view class="total-i rows"wx:for="{{data}}"wx:key="*this">
+            <view class="serial-i-l flexrow">
+                <view class="total-i-serial">{{index+1}}</view>
+                <view class="serial-i-pic">
+                    <image src="{{item.img ? item.img : pic}}"></image>
+                </view>
+                <view class="serial-i-name">{{item.name}}</view>
+            </view>
+            <view class="serial-i-r">
+                <switch checked="{{item.statr}}" bindchange="switch1Change"data-index="{{index}}"data-id="{{item.id}}"/>
+                <view class="serial-i-r-b flexrow"bindtap="bindcall"data-phone="{{item.tel}}">
+                    <image src="../../imgs/call.png" ></image>
+                    <text> {{item.day}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="add row">
+        <button class="row" open-type="share"hover-class="none">
+            邀请合伙人
+        </button>
+    </view>
+    
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="1">
+            <image src="../../imgs/profitB.png"></image>收益
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="2">
+            <image src="../../imgs/formsB.png"/>统计报表
+        </view>
+        <view class="tabBar-item tabBar-current"bindtap="bindcount"data-index="3">
+            <image src="../../imgs/partnerA.png"/>合作伙伴
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="4">
+            <image src="../../imgs/p4-jgb.png"/>机构
+        </view>
+    </view>
+</view>

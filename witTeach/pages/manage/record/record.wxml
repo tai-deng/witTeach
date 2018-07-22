@@ -1,0 +1,30 @@
+<!--pages/manage/record/record.wxml-->
+<view class="container">
+    <view class="money-top">
+        <view class="money-top-title row">
+            总提现收益(元)
+        </view>
+        <view class="money-top-money row">
+            {{data.momey}}
+        </view>
+    </view>
+    <view class="bar">
+        提现详情
+    </view>
+    <view class="moneys">
+        <view class="moneys-i rows"wx:for="{{data.withdrawal}}"wx:key="*this">
+            <view class="moneys-i-l">提现金额{{item.money}}元</view>
+            <view class="moneys-i-r lfexrow">{{item.create_time}}<text>
+                <block wx:if="{{item.statr==1}}">
+                    申请中
+                </block>
+                <block wx:if="{{item.statr==2}}">
+                    失败
+                </block>
+                <block wx:if="{{item.statr==3}}">
+                    已转账
+                </block>
+            </text></view>
+        </view>
+    </view>
+</view>

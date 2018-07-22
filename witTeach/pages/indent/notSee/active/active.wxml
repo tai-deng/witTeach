@@ -1,0 +1,97 @@
+<!--pages/indent/notSee/active/active.wxml-->
+<!-- <import src="../../../../wxParse/wxParse.wxml"/>
+<view class="adv-container">
+    <view class="adv-title">
+        {{data.title}}
+    </view>
+    <view class="adv-info rows">
+        <view class="adv-info-l">
+            {{data.create_time}}
+            发布者: {{data.name}}
+        </view>
+        <view class="adv-info-r">
+            {{data.reading_volume}}阅读量
+        </view>
+    </view>
+    <view class="adv-pic">
+        <block wx:if="{{data.type==1}}">
+            <video src="{{data.mv}}"/>
+        </block>
+        <block wx:ifel="{{data.type==2}}">
+            <image src="{{data.mv}}"></image>
+        </block>
+        
+    </view>
+    <view class="adv-describe">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+    <view class="adv-bar flexrow">
+        <view class="bar-left row"bindtap="binddetails">
+            机构详情
+        </view>
+        <button class="row bar-left" open-type="share"hover-class="none">
+            分享给朋友
+        </button>
+    </view>
+</view> -->
+<import src="../../../../wxParse/wxParse.wxml"/>
+<view class="art-container">
+    <block wx:if="{{isArticle}}">
+        <view class="art-title">
+            {{article.title}}
+        </view>
+        <view class="art-info rows">
+            <view class="art-info-l">
+                {{article.create_time}}{{article.name}}
+            </view>
+            <view class="art-info-r">
+                {{article.reading_volume}}阅读量
+            </view>
+        </view>
+        <view class="art-pic">
+            <image src="{{article.mv}}"></image>
+        </view>
+        <view class="art-describe">
+            {{article.content}}
+        </view>
+    </block>
+    <block wx:else>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </block>
+
+    <view class="art-bar flexrow">
+        <view class="bar"></view>
+        推荐机构
+    </view>
+    <view class="art-institution">
+        <view class="art-institution-i rows"wx:for="{{school}}"wx:key="*this">
+            <!-- <view class="art-institution-i-l flexrow"> -->
+                <view class="art-institution-i-pic">
+                    <image src="{{item.image}}"></image>
+                </view>
+                <view class="art-institution-i-info">
+                    <view class="art-institution-i-title flexrow">
+                        {{item.name}}
+                        <view class="art-moods row">
+                            人气旺
+                        </view>
+                    </view>
+                    <view class="art-institution-i-loc">
+                        {{item.content}}
+                    </view>
+                </view>
+                <view class="art-institution-i-r row" data-id="{{item.id}}"bindtap="bindmore">
+                    了解更多
+                </view>
+            <!-- </view> -->
+        </view>
+        <view class="art-lookMore row"bindtap="bindlookMore">
+            查看更多机构
+        </view>
+    </view>
+    <view class="adv-bar flexrow">
+        <button class="row bar-left" open-type="share"hover-class="none">
+            分享给朋友
+        </button>
+    </view>
+</view>

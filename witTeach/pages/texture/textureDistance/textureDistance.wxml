@@ -1,0 +1,26 @@
+<!--pages/texture/textureDistance/textureDistance.wxml-->
+<view class="container">
+    <map 
+    id="myMap" 
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
+    scale="16" 
+    circles="{{circles}}"
+    markers="{{markers}}" 
+    show-location
+    style="width: 100%; height: 100%;"
+  ></map>
+  <cover-image class="mid" src="../../imgs/map-loc.png" style="width:32rpx;height:32rpx;display:block;top:{{top}}px;left:{{left}}px"></cover-image>
+  <cover-view class="loc"catchtap="moveToLocation">
+    <cover-image src="../../imgs/map-set.png" style="width:32rpx;height:32rpx;display:block;"></cover-image>
+  </cover-view>
+  <cover-view class="slider">
+    <cover-view class="slider-lessen">
+        <cover-image src="../../imgs/map-jian.png"catchtap="lessenKm" style="width:48rpx;height:48rpx;display:block;"></cover-image>
+    </cover-view>
+    <cover-view class="slider-km">{{km}}公里</cover-view>
+    <cover-view class="slider-add">
+        <cover-image src="../../imgs/map-jia.png"catchtap="addKm" style="width:48rpx;height:48rpx;display:block;"></cover-image>
+    </cover-view>
+  </cover-view>
+</view>

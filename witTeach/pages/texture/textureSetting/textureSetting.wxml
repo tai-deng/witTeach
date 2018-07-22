@@ -1,0 +1,121 @@
+<!--pages/texture/textureSetting/textureSetting.wxml-->
+<view class="container">
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">线上报名缴费</text>
+    </view>
+    <view class="lineTitle flexrow">
+        <view class="lineTitle-l"></view>
+        代理价格
+    </view>
+    <view class="content-warp">
+        <view class="content-i rows">
+            <view class="content-i-l">分享阅读</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.read_money}}"focus="{{focus==1}}"bindblur="bindinput"data-index="1"/>
+                    元
+                </view>
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="1">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="content-i rows">
+            <view class="content-i-l">意向报名</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.sign_money}}"focus="{{focus==2}}"bindblur="bindinput"data-index="2"/>
+                    元
+                </view>
+                
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="2">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="content-i rows">
+            <view class="content-i-l">推荐学生</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.recommend_money}}"focus="{{focus==3}}"bindblur="bindinput"data-index="3"/>
+                    元
+                </view>
+                
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="3">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="content-i rows">
+            <view class="content-i-l">线上购买</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.purchase}}"focus="{{focus==6}}"bindblur="bindinput"data-index="6"/>
+                    元
+                </view>
+                
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="6">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="lineTitle flexrow">
+        <view class="lineTitle-l"></view>
+        自由价：无主动推荐分享
+    </view>
+    <view class="content-warp">
+        <view class="content-i rows">
+            <view class="content-i-l">分享阅读</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.free_read_money}}"focus="{{focus==4}}"bindblur="bindinput"data-index="4"/>
+                    元
+                </view>
+                
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="4">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="content-i rows">
+            <view class="content-i-l">意向报名</view>
+            <view class="content-i-r flexrow">
+                <view class="content-i-r-in flexrow">
+                    <input type="digit"value="{{data.free_sign_money}}"focus="{{focus==5}}"bindblur="bindinput"data-index="5"/>
+                    元
+                </view>
+                
+                <view class="content-i-r-xg row"bindtap="bindrevise"data-index="5">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="content-warp move">
+        <view class="content-i rows">
+            <view class="content-i-l">推广启用</view>
+            <switch bindchange="bindchange"checked="{{data.state == 1}}"></switch>
+        </view>
+        <view class="content-i rows">
+            <view class="content-i-l">推广距离</view>
+            <view class="content-i-r flexrow"bindtap="bindkm">
+                <view class="content-i-r-in flexrow">
+                    <text>校区周围</text>{{data.distance}}公里
+                </view>
+                <view class="content-i-r-xg row">
+                    <image src="../../imgs/xg.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="1">
+            <image src="../../imgs/lookB.png"></image>推广查询
+        </view>
+        <view class="tabBar-item tabBar-current"bindtap="bindcount"data-index="2">
+            <image src="../../imgs/setA.png"></image>推广设置
+        </view>
+    </view>
+</view>

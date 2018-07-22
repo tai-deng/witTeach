@@ -1,0 +1,37 @@
+/* pages/indent/notSee/notSee.wxss */
+.container{
+    padding: 0 30rpx;
+}
+.in-school-details > view:nth-last-child(1){
+    border:none;
+}
+.in-school-details-i{
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e1e1e1;
+}
+.in-school-lesson-info{
+    flex: 1;
+}
+.in-school-lesson-pic > image {
+    width: 110rpx;
+    height: 110rpx;
+    display: block;
+}
+.in-school-lesson-pic-r{
+    margin-left: 26rpx;
+}
+.in-school-lesson-title{
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 6rpx;
+}
+.in-school-lesson-state{
+    font-size: 24rpx;
+    color: #666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

@@ -1,0 +1,71 @@
+<!--pages/port5/edit/edit.wxml-->
+<view class="container">
+    <form bindsubmit="bindsearch" report-submit="true">
+    <view class="control rows">
+        <view class="control-l"bindtap="cancel">取消</view>
+        <button class="control-r {{1 ? 'subb' : 'suba'}}"formType ="submit" >发布</button>
+    </view>
+    <!-- <view class="input-warp">
+        <input name="title" placeholder="标题"></input>
+    </view> -->
+    
+    <view class="input-warp row">
+        <textarea type="text" value="{{leave}}" name="textarea" placeholder="课评与说说" bindinput="bindinput"/>
+    </view>
+    <view class="uploadTab flexrow">
+        <view class="uploadTab-left row {{upload == 2?'taba':'tabb'}}"data-index="1" bindtap="bindTab">上传图片</view>
+        <view class="uploadTab-left row {{upload == 1?'taba':'tabb'}}"data-index="2" bindtap="bindTab">上传视频</view>
+    </view>
+    <view class="add-img flexrow">
+        <view class="imgs"wx:if="{{imageData}}">
+            <image src="{{imageData}}" catchtap="preview"></image>
+            <image src="../../imgs/remove.png" catchtap="binddel"></image>
+        </view>
+        <view class="imgs"wx:if="{{videoData}}">
+            <video src="{{videoData}}" catchtap="preview"></video>
+            <image src="../../imgs/remove.png" catchtap="binddel"></image>
+        </view>
+        <image src="../../imgs/addImg.png"wx:if="{{upUrl==''}}" catchtap="addImg"></image>
+    </view>
+    <view bindtap="limits" value="{{index}}" range="{{limits}}">
+        <view class="limits rows">
+            <view class="limits-l flexrow">
+                <image src="../../imgs/partnerB.png"></image>
+                <text>谁可以看</text>
+            </view>
+            <view class="limits-r flexrow">
+                <text>{{limit ? limit : '公开'}}</text>
+                <image src="../../imgs/arrowR.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- <view bindtap="reminds" value="{{index}}" range="{{reminds}}">
+        <view class="limits rows">
+            <view class="limits-l flexrow">
+                <image src="../../imgs/at.png"></image>
+                <text>提醒谁看</text>
+            </view>
+            <view class="limits-r flexrow">
+                <text>{{remind}}</text>
+                <image src="../../imgs/arrowR.png"></image>
+            </view>
+        </view>
+    </view> -->
+</form>
+<view class="toast"wx:if="{{flag}}">
+    <view class="toast-cont">
+        <view class="control tb rows">
+            <view class="control-l"bindtap="cancelBB">取消</view>
+            <view class="control-r subb"bindtap="bindFlagBB">确定</view>
+        </view>
+        <scroll-view scroll-y style="height: 310px;">
+            <view class="itemSw" wx:for="{{list}}">
+                <view class="controlb rows">
+                    <view class="control-lb">{{item.name}}</view>
+                    <switch type="switch" data-id="{{item.id}}" data-index="{{index}}" bindchange="bindchange"></switch>
+                </view>
+            </view>
+          </scroll-view>
+    </view>
+</view>
+</view>

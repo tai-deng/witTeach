@@ -1,0 +1,121 @@
+/* pages/port3/port3B/port3B.wxss */
+.container{
+    padding-bottom: 98rpx;
+}
+.statistics-top{
+    width: 100vw;
+    height: 361rpx;
+    background-color: #ff6633;
+}
+.record-bar{
+    padding: 30rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 24rpx;
+    color: #fff;
+}
+.record-bar-image > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block; 
+    margin-right: 14rpx;
+}
+.statistics-title {
+    font-size: 28rpx;
+    color: #fff;
+}
+.statistics-money{
+    padding: 10rpx 0;
+    font-size: 80rpx;
+    color: #fff;
+}
+.statistics-bnt{
+    width: 260rpx;
+    height: 68rpx;
+    border-radius: 4rpx;
+    background-color: #ffc95a;
+    font-size: 34rpx;
+    color: #ed4c14;
+}
+.total-bar{
+    padding: 0 30rpx;
+    font-size: 32rpx;
+    height: 118rpx;
+    border-bottom: 10rpx solid #fff5f3;
+}
+.total-bar-l-pic > image{
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.total-bar-l-month{
+    color: #333;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+.total-bar-l-sj > image {
+    width: 16rpx;
+    height: 16rpx;
+    display: block;
+}
+.total-bar-l-sum{
+    color: #666;
+    margin-left: 20rpx;
+}
+.total-bar-l-sum > text {
+    color: #ff6633;
+}
+.total-bar-r{
+    color: #333;
+}
+.totals{
+    padding:0 30rpx;
+}
+.total-i{
+    border-bottom: 1px solid #ccc;
+    font-size: 32rpx;
+    color: #333;
+    padding:10rpx 20rpx;
+    height: 110rpx;
+}
+.total-i-serial{
+    width: 40rpx;
+    font-size: 28rpx;
+}
+.serial-i-pic > image {
+    width: 90rpx;
+    height: 90rpx;
+    display: block;
+    margin-right: 30rpx;
+    border-radius: 50%;
+}
+.serial-i-name{}
+.serial-i-r{
+    font-size: 28rpx;
+}
+scroll-view{
+    height:670rpx;
+}
+
+.tab-bot{
+    width: 100vw;
+    height: 98rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 2;
+    font-size: 32rpx;
+    border-top: 1px solid #f0f0f0;
+}
+.tab-bot-l{
+    flex: 1;
+    background-color: #ff6633;
+    color: #fff;
+}
+.tab-bot-r{
+    flex: 1;
+    background-color: #fff;
+    color: #ff6633;
+}

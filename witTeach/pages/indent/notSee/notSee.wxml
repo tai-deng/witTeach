@@ -1,0 +1,14 @@
+<!--pages/indent/notSee/notSee.wxml-->
+<view class="container">
+    <view class="in-school-details-i rows"wx:for="{{data}}"wx:key="*this">
+        <view class="in-school-lesson-info flexrow"bindtap="binddetails"data-id="{{item.id}}">
+            <view class="in-school-lesson-pic">
+                <image src="{{item.img}}"></image>
+            </view>
+            <view class="in-school-lesson-pic-r">
+                <view class="in-school-lesson-title">{{item.title}}</view>
+                <view class="in-school-lesson-state">{{item.content}}</view>
+            </view>
+        </view>
+    </view>
+</view>

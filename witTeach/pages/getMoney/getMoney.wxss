@@ -1,0 +1,63 @@
+/* pages/getMoney/getMoney.wxss */
+.container{
+    background-color: #e1e1e1e1;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 20rpx;
+}
+.moneyId{
+    font-size: 28rpx;
+    color: #2b2b2b;
+}
+.moneyId-i{
+    /* border-bottom:1px solid  #e1e1e1e1; */
+    padding: 0 30rpx;
+    height: 68rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    align-items: center;
+}
+.moneyId-i-c{
+    flex:1;
+}
+.moneyId-i-r > image{
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.add-moneyId{}
+.add-moneyId-card-name{
+    padding: 0 30rpx;
+    height: 68rpx;
+    font-size: 28rpx;
+    color: #2b2b2b;
+    align-items: center;
+    /* border-bottom: 1rpx solic #f0f0f0; */
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.add-moneyId-card-name > input {
+    flex: 1;
+    margin-left: 20rpx;
+}
+.hint{
+    font-size: 22rpx;
+    color: #666;
+    padding: 0 30rpx;
+}
+.submit{
+    margin-top: 60rpx;
+    width: 690rpx;
+    height: 78rpx;
+    border-radius: 8rpx;
+    background-color: #bbb;
+    color: #fff;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+.sba{
+    background-color: #bbb;
+}
+.sbb{
+    background-color: green;
+}

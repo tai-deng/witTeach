@@ -1,0 +1,156 @@
+/* pages/port4/port4C/port4C.wxss */
+
+.container{
+    padding-bottom: 98rpx;
+}
+.search-war{
+    padding-left: 30rpx;
+    height: 98rpx;
+}
+.search-l{
+    width: 564rpx;
+    height: 60rpx;
+    margin-right: 36rpx;
+    background-color: #f5edea;
+    border-radius: 4rpx;
+}
+.search-l > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-left: 15rpx;
+    margin-right: 15rpx;
+}
+.search-l > input {
+    flex: 1;
+    font-size: 24rpx;
+    color: #000;
+}
+.search-r{
+    font-size: 30rpx;
+    color: #ff6633;
+}
+.filtrate{
+    border-top: 10rpx solid #fff3f1;
+    height: 88rpx;
+    border-bottom: 1px solid #d7d7d7;
+}
+.filtrate-time{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+}
+.filtrate-title{
+    margin-right: 10rpx;
+}
+.a{
+    color: #ff6633;
+}
+.b{
+    color: #666666;
+}
+.trigon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.trigon image {
+    width: 16rpx;
+    height: 16rpx;
+    display: block;
+}
+scroll-view {
+    width: 690rpx;
+    height: 918rpx;
+    padding: 0 30rpx;
+}
+.content-i{
+    padding: 30rpx 0;
+    border-bottom: 1px solid #d7d7d7;
+}
+.content-i-top{
+    margin-bottom: 20rpx;
+}
+.content-i-top-l{
+    margin-right: 25rpx;
+}
+.content-i-top-l > image {
+    width: 192rpx;
+    height: 192rpx;
+    display: block;
+}
+.content-i-top-r{
+    flex:1;
+}
+.content-i-top-r-title{
+    font-size: 32rpx;
+    color: #333;
+}
+.content-i-top-r-date{
+    font-size: 24rpx;
+    color: #999999;
+}
+.content-i-top-r-introduce{
+    text-indent: 2em;
+    font-size: 28rpx;
+    color: #666666;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.content-i-top-r-r{
+    margin-left: 15rpx;
+    padding-left: 15rpx;
+    font-size: 20rpx;
+    color:#666666;
+    border-left: 1px solid #e1e1e1;
+}
+.content-i-top-r-r-r > text {
+    color: #ff6633;
+}
+.content-i-bon-l {
+    font-size: 20rpx;
+    color: #999999;
+}
+.content-i-bon-l > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-right: 20rpx;
+}
+.content-i-bon-r{
+    font-size: 28rpx;
+    color: #ff6633;
+}
+.tab-bar{
+    width: 100vw;
+    height: 98rpx;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #f0f0f0;
+}
+.tab-bar > view {
+    flex: 1;
+    font-size: 20rpx;
+}
+.tab-bar image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.tab-bar-r{
+    color:#ff722a;
+}
+.tab-bar-c{
+    color:#c0b5af;
+}
+.tab-bar-l{
+    color:#c0b5af;
+}

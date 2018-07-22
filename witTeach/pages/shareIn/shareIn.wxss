@@ -1,0 +1,9 @@
+/* pages/shareIn/shareIn.wxss */
+.title {
+    padding-top: 320rpx;
+}
+.title > image{
+    width: 300rpx;
+    height: 90rpx;
+    display: block;
+}

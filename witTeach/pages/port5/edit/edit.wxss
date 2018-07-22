@@ -1,0 +1,142 @@
+/* pages/port5/edit/edit.wxss */
+.container {
+
+}
+.control{
+    height: 70rpx;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #2b2b2b;
+}
+.control button {
+    font-size: 30rpx;
+}
+.suba {
+    color:#cccccc;
+}
+.subb{
+    color: #30c22e;
+}
+.input-warp input {
+    font-size: 28rpx;
+    color: #2b2b2b;
+}
+.input-warp{
+    margin-top: 20rpx;
+    width: 670rpx;
+    margin-left: 30rpx;
+    padding: 10rpx;
+    border: 1px solid #e1e1e1;
+}
+textarea {
+    flex: 1;
+    font-size: 28rpx;
+    color: #2b2b2b;
+    height: 200rpx;
+}
+.add-img{
+    padding: 30rpx;
+}
+.add-img > image {
+    width: 128rpx;
+    height: 128rpx;
+    display: block;
+    margin-left: 15rpx;
+}
+.imgs {
+    margin-right: 15rpx;
+    position: relative;
+}
+.imgs > image:nth-child(1) {
+    width: 128rpx;
+    height: 128rpx;
+    display: block;
+}
+.imgs > image:nth-child(2) {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+.add-img imgs:nth-last-child(1){
+    margin: 0;
+}
+.limits{
+    padding: 0 30rpx;
+    height: 70rpx;
+    font-size: 28rpx;
+    color: #2b2b2b;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 20rpx;
+}
+.limits-l > image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+    margin-right: 30rpx;
+}
+.limits-r > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-left: 30rpx;
+}
+.limits-r {
+    color: #ccc;
+}
+
+.toast{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.toast-cont{
+    width: 100vw;
+    height: 750rpx;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+.tb{
+    height: 120rpx;
+}
+.control-lb{
+    margin-left: 30rpx;
+}
+.controlb{
+    font-size: 28rpx;
+    height: 70rpx;
+    margin-bottom: 15rpx;
+
+}
+.controlb switch{
+    transform: scale(0.7);
+    margin-right: 30rpx;
+}
+
+.uploadTab{
+    padding-left: 35rpx;
+    height: 70rpx;
+    font-size: 28rpx;
+    padding-top: 20rpx;
+}
+.uploadTab-left{
+    width: 150rpx;
+    height: 70rpx;
+}
+.taba{
+    background-color: #30c22e;
+    color: #fff
+}
+.tabb{
+    background-color: #ccc;
+    color: #fff
+}

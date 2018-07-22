@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/port4/port4",
+    "pages/manage/manage",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/article/article",
+    "pages/advisory/advisory",
+    "pages/indent/indent",
+    "pages/manage/teacher/teacher",
+    "pages/manage/record/record",
+    "pages/texture/texture",
+    "pages/texture/textureSetting/textureSetting",
+    "pages/texture/textureDistance/textureDistance",
+    "pages/port3/port3",
+    "pages/port3/port3B/port3B",
+    "pages/port4/port4B/port4B",
+    "pages/port4/port4C/port4C",
+    "pages/terrace/terrace",
+    "pages/getMoney/getMoney",
+    "pages/indent/notSee/notSee",
+    "pages/port5/port5",
+    "pages/port5/port5B/port5B",
+    "pages/port5/port5C/port5C",
+    "pages/port3/port3C/port3C",
+    "pages/port3/port3D/port3D",
+    "pages/port5/edit/edit",
+    "pages/indent/notSee/active/active",
+    "pages/shareIn/shareIn"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "wihte"
+  }
+}

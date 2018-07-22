@@ -1,0 +1,147 @@
+<!--pages/modal/institution/institution.wxml-->
+<view class="in-container">
+    <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="rgba(255, 102, 51, 0.8)" autoplay="true" circular="true">
+        <block wx:for="{{imgUrls}}"wx:key="*this">
+            <swiper-item>
+                <image src="{{item}}" catchtap="bindslide" data-index="{{index}}" class="slide-image" width="355" height="150"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="in-enter column"bindtap="bindenter">
+        <text>优质机构</text>
+        <text>入驻申请</text>
+    </view>
+    <view class="in-school">
+        <view class="in-school-top rows">
+            <view class="in-school-l">
+                <view class="in-school-name">
+                    {{data.name}}
+                </view>
+                <view class="in-school-loc flexrow"bindtap="bindloc">
+                    <image src="../../imgs/loc.png"></image>
+                    <text>{{data.loc}}</text>
+                </view>
+            </view>
+            <view class="in-school-r" bindtap="bindCall"data-phone="{{data.call}}">
+                <image src="../../imgs/phone.png"></image>
+            </view>
+        </view>
+        <view class="in-school-intro rows">
+            <view class="in-school-intro-l">
+                学校简介
+            </view>
+            <view class="in-school-intro-more"wx:if="{{more==1}}"bindtap="bindmore">
+                查看更多 >
+            </view>
+        </view>
+        <view class="in-school-intro-war"wx:if="{{more==2}}">
+            <view class="in-school-intro-cet">
+                {{data.schoolCet}}
+            </view>
+            <view class="in-school-away row"bindtap="bindaway">
+                收起简介
+            </view>
+        </view>
+    </view>
+    <view class="in-tab">
+        <view class="row {{ind==1?'taba':'tabb'}}"bindtap="bindtab"data-index="1">课程</view>
+        <view class="row {{ind==2?'taba':'tabb'}}"bindtap="bindtab"data-index="2">名师</view>
+        <view class="row {{ind==3?'taba':'tabb'}}"bindtap="bindtab"data-index="3">咨询文章</view>
+    </view>
+    <view class="in-school-details">
+        <view class="in-school-details-i rows"wx:for="{{data.edu}}"wx:key="*this">
+            <view class="in-school-lesson-info flexrow"bindtap="binddetails">
+                <view class="in-school-lesson-pic">
+                    <image src="{{item.pic}}"></image>
+                </view>
+                <view class="in-school-lesson-pic-r">
+                    <view class="in-school-lesson-title">{{item.courseName}}</view>
+                    <view class="in-school-lesson-state">{{item.state}}</view>
+                </view>
+            </view>
+            <view class="in-school-gain"wx:if="{{ind==1}}">
+                <view class="in-school-cost">原价：{{item.cost}}元</view>
+                <view class="in-school-price">网价：<text>{{item.price}}</text>元</view>
+                <view class="in-school-sale row"bindtap="bindsale"data-courseName="{{item.courseName}}"data-price="{{item.price}}">优惠抢购</view>
+            </view>
+        </view>
+    </view>
+    <view class="in-nearby"><view class="in-bar"></view>附近校区</view>
+    <view class="in-school-details">
+        <view class="in-school-details-i"wx:for="{{data.nearby}}"wx:key="*this">
+            <view class="in-nearby-pic">
+                <image src="{{item.pic}}"></image>
+            </view>
+            <view class="in-nearby-r">
+                <view class="in-nearby-r-t rows">
+                    <view class="in-nearby-r-t-l">
+                        {{item.title}}
+                    </view>
+                    <view class="in-nearby-r-t-r"bindtap="bindCall"data-phone="{{item.call}}">
+                        <image src="../../imgs/call.png"></image>
+                    </view>
+                </view>
+                <view class="in-nearby-lc flexrow"bindtap="bindloc">
+                    <image src="../../imgs/loc.png"></image>
+                    {{item.loc}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="in-consult row"bindtap="bindconsult">
+        咨询预约
+    </view>
+    <view class="in-money"bindtap="bindmoney"wx:if="{{money>0}}">
+        <image src="../../imgs/money.png"></image>
+    </view>
+    <view class="in-toast row"wx:if="{{flag}}">
+        <view class="in-toast-cet"wx:if="{{toast==1}}">
+            <view class="in-toast-cet-t row">
+                {{title}}
+                <image src="../../imgs/off.png"bindtap="bindtoastoff"></image>
+            </view>
+            <view class="in-toast-type-inb flexrow"wx:if="{{apply==3}}">
+                学校名称：{{data.name}}
+            </view>
+            <view class="in-toast-type-inb flexrow"wx:if="{{apply==3}}">
+                课程名称：{{coursename}}
+            </view>
+            <view class="in-toast-type-inb flexrow"wx:if="{{apply==3}}">
+                优惠价格：<text>{{price}}元</text>
+            </view>
+            <view class="in-toast-type-in row">
+                <input type="text"placeholder="{{placeholder}}"placeholder-style="color:#999;font-size:30rpx;"bindinput="bindtitle"/>
+            </view>
+            <view class="in-toast-type-in row">
+                <input type="number"placeholder="请输入联系电话"placeholder-style="color:#999;font-size:30rpx;"bindinput="bindphone"/>
+            </view>
+            <view class="in-toast-type-in"wx:if="{{apply==1}}">
+                <picker bindchange="bindtype"value="{{index}}"range="{{orgtype}}">
+                <view class="picker">
+                    <view class="picker-l">
+                        {{org ? org : "请选择机构类型"}}
+                    </view>
+                    <view class="picker-r">
+                        <image src="../../imgs/up.png"wx:if="{{picker}}"></image>
+                        <image src="../../imgs/down.png"wx:else></image>
+                    </view>
+                </view>
+                </picker>
+            </view>
+            <view class="in-toast-submit row"bindtap="bindsubmit">
+                {{apply==3?"优惠抢购":"提交"}}
+            </view>
+        </view>
+        <view class="in-toast-cet"wx:if="{{toast==2}}">
+            <view class="in-toast-offb">
+                <image src="../../imgs/offb.png"bindtap="bindtoastoff"></image>
+            </view>
+            <view class="in-toast-offb-title row">
+                {{apply==1?"入驻信息提交成功！":"报名信息提交成功！"}}
+            </view>
+            <view class="in-toast-offb-cet row">
+                稍后我们工作人员会与您联系。
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/texture/textureDistance/textureDistance.wxss */
+.container{
+    width: 100vw;
+  height: 100vh;
+}
+.loc{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  position: fixed;
+  left: 80rpx;
+  bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider{
+  position: fixed;
+  right: 80rpx;
+  bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+.slider-km {
+  padding: 0 6rpx;
+  line-height: 48rpx;
+  flex:1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24rpx;
+  color: #666;
+}
+.mid{
+  position: fixed;
+}

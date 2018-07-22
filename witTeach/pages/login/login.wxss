@@ -1,0 +1,89 @@
+/* pages/manage/manage.wxss */
+.container{
+    width: 100vw;
+    min-height: 100vh;
+}
+.title {
+    padding-top: 120rpx;
+    padding-bottom: 60rpx;
+}
+.title > image{
+    width: 300rpx;
+    height: 90rpx;
+    display: block;
+}
+.phone{
+    width: 628rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    margin-left: 60rpx;
+    margin-bottom: 60rpx;
+}
+.warpa{
+    border: 1px solid #ff6633;
+}
+.warpb{
+    border: 1px solid #b8b8b8;
+}
+.phone > input {
+    font-size: 30rpx;
+    color: #999;
+    flex: 1;
+    margin-left: 30rpx;
+}
+.phone-r{
+    width: 80rpx;
+    height: 100rpx;
+}
+.phone-r > image {
+    width: 20rpx;
+    height: 20rpx;
+    display: block;
+}
+.phone-r-b{
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    border-left: 1px solid #b8b8b8;
+}
+.autha {
+    color: #ff6633;
+}
+.authb{
+    color: #b8b8b8;
+}
+.enter{
+    width: 630rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+    background-color: #ff5b33;
+    font-size: 36rpx;
+    color: #fff;
+    box-shadow: 0 11rpx 11rpx 1rpx #fae2db;
+    margin-top: 120rpx;
+    margin-left: 60rpx;
+}
+.contact{
+    font-size: 30rpx;
+    color: #ff6633;
+    position: fixed;
+    left: 0;
+    bottom: 70rpx;
+    width: 100vw;
+    height: 80rpx;
+}
+button{
+    background-color: #fff;
+    border-radius: 0;
+}
+button::after{
+    border:none;
+}
+.contact > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-right: 15rpx;
+}
+
+

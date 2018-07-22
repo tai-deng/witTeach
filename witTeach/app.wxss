@@ -1,0 +1,125 @@
+/**app.wxss**/
+view {
+  box-sizing: border-box;
+} 
+
+.flexrow {
+  display: flex;
+  align-items: center;
+}
+.flexwrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rows{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flexcolumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.columns {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.tabBar-bottom{
+  width: 100vw;
+  height: 98rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 2;
+  font-size: 22rpx;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+.tabBar-item{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.tabBar-item image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.tabBar-current{
+    color:#ff722a;
+}
+.tabBar-other{
+  color:#c0b5af;
+}
+button {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+button::after {
+  border: none;
+}
+
+
+.toas{
+  top: 0;
+  left: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .4);
+}
+.toas_block{
+  width: 600rpx;
+  background-color: #fff;
+  border-radius: 14rpx;
+  overflow: hidden;
+}
+.toas_title{
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, .7);
+  height: 80rpx;
+  align-items: flex-end;
+}
+.toas_content{
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, .7);
+  height: 100rpx;
+}
+.toas_cles{
+  border-top: 1px solid rgba(0, 0, 0, .4);
+  font-size: 30rpx;
+}
+.toas_showCancel{
+  color: rgba(0, 0, 0, .7);
+  flex: 1;
+  border-right: 1px solid rgba(0, 0, 0, .4);
+  height: 100rpx;
+}
+.toas_Confirm{
+  height: 100rpx;
+  color: #4fc750;
+  flex: 1;
+  font-size: 30;
+}

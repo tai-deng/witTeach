@@ -1,0 +1,30 @@
+<!--pages/getMoney/getMoney.wxml-->
+<view class="container">
+    <view class="moneyId"wx:if="{{data[0]}}">
+        <view class="moneyId-i flexrow"wx:for="{{data}}"wx:key="*this"bindtap="binmoneyId"data-index="{{index}}">
+            <view class="moneyId-i-l">姓名：{{item.name}}　</view>
+            <view class="moneyId-i-c">{{item.bank_name ? item.bank_name :'银行卡'}}：{{item.bank_num}}</view>
+            <view class="moneyId-i-r"catchtap="binddel"data-index="{{index}}"data-id="{{item.id}}">
+                <image src="../imgs/del.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="add-moneyId">
+        <view class="add-moneyId-card-name flexrow">
+            开户名称：<input type="text"value="{{name}}"placeholder="请输入开户名称"bindinput="bindcarName"/>
+        </view>
+        <view class="add-moneyId-card-name flexrow">
+            银行卡号：<input type="number"value="{{cardNum}}"placeholder="请输入银行卡号"bindinput="bindcarNum"/>
+        </view>
+        <view class="add-moneyId-card-name flexrow">
+            开户银行：<input type="text"value="{{bank_name}}"placeholder="请输入银行"bindinput="bindbank_name"/>
+        </view>
+        <view class="add-moneyId-card-name flexrow">
+            提现金额：<input type="number"placeholder="请输入提现金额"bindinput="bindamount"/>
+        </view>
+        <view class="hint">
+            本次可提现100，今日上线是500.00元
+        </view>
+    </view>
+    <view class="submit row {{sub?'sbb':'sba'}}"bindtap="bindsumbit">确定提现</view>
+</view>

@@ -1,0 +1,69 @@
+/* pages/port3/port3C/port3C.wxss */
+.container{
+  padding-bottom:98rpx;
+}
+.totals{}
+.total-i{
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 32rpx;
+    color: #333;
+    padding:10rpx 0 10rpx 30rpx;
+}
+.serial-i-l,
+.serial-i-name{
+    flex: 1;
+}
+.serial-i-name{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.total-i-serial{
+    width: 40rpx;
+    font-size: 28rpx;
+}
+.serial-i-pic > image {
+    width: 90rpx;
+    height: 90rpx;
+    display: block;
+    margin-right: 30rpx;
+    border-radius: 50%;
+}
+.serial-i-r{
+    font-size: 28rpx;
+    color: #999;
+    text-align: right;
+}
+.serial-i-r > switch {
+    transform: scale(0.6);
+}
+.serial-i-r-b{
+    justify-content: flex-end;
+    padding-right: 20rpx;
+    align-items: center;
+}
+.serial-i-r-b > image{
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-right: 20rpx;
+}
+.add{
+    position: fixed;
+    bottom: 162rpx;
+    left: 0;
+    width: 100vw;
+    height: 70rpx;
+    z-index: 4;
+}
+.add button{
+    width: 238rpx;
+    height: 68rpx;
+    border-radius: 6rpx;
+    color: #fff;
+    background-color: #ff6633;
+    font-size: 28rpx;
+}
+button::after {
+    border:none;
+}

@@ -1,0 +1,40 @@
+/* pages/advisory/advisory.wxss */
+.adv-container{
+    padding-top: 20rpx;
+    padding-bottom: 100rpx;
+}
+.adv-title{
+    font-size: 34rpx;
+    color: #333;
+    margin-left: 30rpx;
+    margin-bottom: 30rpx;
+}
+.adv-info{
+    padding: 0 30rpx;
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}
+.adv-pic image,
+.adv-pic video{
+    width: 690rpx;
+    height: 350rpx;
+    display: block;
+    margin-left: 30rpx;
+}
+.adv-describe{
+    padding: 30rpx;
+    text-indent: 2em;
+    font-size: 28rpx;
+    color:#000;
+}
+.adv-bar {
+    width: 100vw;
+    height: 98rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #ff722a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}

@@ -1,0 +1,73 @@
+/* pages/port4/port4C/port4C.wxss */
+
+.container{
+    padding-bottom: 98rpx;
+}
+.tab-bar{
+    width: 100vw;
+    height: 98rpx;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #f0f0f0;
+}
+.tab-bar > view {
+    flex: 1;
+    font-size: 20rpx;
+}
+.tab-bar image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.tab-bar-r{
+    color:#ff722a;
+}
+.tab-bar-c{
+    color:#c0b5af;
+}
+.tab-bar-l{
+    color:#c0b5af;
+}
+
+.study-total{
+    padding:0 30rpx;
+    font-size:32rpx;
+    height:118rpx;
+    font-weight: 700;
+    border-bottom:10rpx solid #fff5f3;
+    color:#333;
+}
+.ind-award{
+    padding:0 30rpx;
+    height:100rpx;
+    font-size:28rpx;
+    color:#333;
+    border-bottom:1px solid #fae5e0;
+}
+.study-total-l {
+    flex: 1;
+}
+.study-total-i{
+    padding:0 30rpx;
+    font-size:28rpx;
+    color:#333;
+    border-bottom:1px solid #fae5e0;
+}
+.ind-award-c,
+.ind-award-conent-top,
+.ind-award-conent-i-title {
+    flex: 1;
+}
+.ind-award-r image{
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.ind-award-conent-i{
+    border-bottom: 1px solid #fff5f3;
+    height:100rpx;
+    font-size:28rpx;
+    color:#333;
+}

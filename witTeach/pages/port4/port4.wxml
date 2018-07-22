@@ -1,0 +1,160 @@
+<!--pages/port4/port4.wxml-->
+<view class="container">
+    <view class="statistics-top">
+        <view class="record-bar">
+            <view class="record-bar-image flexrow"bindtap="bindrecord">
+                <image src="../imgs/jlv.png"></image>
+                <text>提现记录</text>
+            </view>
+        </view>
+        <view class="statistics-title row">可提现收益(元)</view>
+        <view class="statistics-money row">{{data.balance}}</view>
+        <view class="statistics-bnt-bar row">
+            <view class="statistics-bnt row"bindtap="binddrawings">提现</view>
+        </view>
+    </view>
+    <view class="total-bar rows">
+        <picker bindchange="bindtotal" range="{{array}}">
+            <view class="total-bar-l flexrow">
+                <view class="total-bar-l-pic">
+                    <image src="../imgs/gold.png"></image>
+                </view>
+                <view class="total-bar-l-month row">{{month}}</view>
+                <view class="total-bar-l-sj">
+                    <image src="../imgs/sj.png"></image>
+                </view>
+                <view class="total-bar-l-sum">
+                    总收益<text>{{data.day_money}}</text>元
+                </view>
+            </view>
+        </picker>
+        <view class="total-bar-r">累计{{data.meter_money}}</view>
+    </view>
+    <view class="ind-award flexrow"bindtap="bindaward"data-index="1">
+        <view class="ind-award-l">分享阅读</view>
+        <view class="ind-award-c">{{data.share.numbers}}人次</view>
+        <view class="ind-award-r flexrow">
+            <view class="ind-award-r-money">{{data.share.money}}元</view>
+            <view class="ind-award-r-arrow">
+                <image wx:if="{{sel==1}}" src="../imgs/xia.png"></image>
+                <image wx:else src="../imgs/shang.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="ind-award-conent"wx:if="{{sel==1}}">
+        <view class="ind-award-conent-i column"wx:for="{{data.share.sharelist}}"wx:key="*this">
+            <view class="ind-award-conent-i-top flexrow">
+                <view class="ind-award-conent-i-title">{{item.title}}</view>
+                <view class="ind-award-conent-i-name">{{item.name}}</view>
+                <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
+                <view class="ind-award-conent-i-state">
+                    <view class="ind-hx"wx:if="{{item.reading_money}}">
+                        {{item.reading_money}}
+                    </view>
+                    <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
+                </view>
+            </view>
+            <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
+                <text class="row">投诉理由</text>{{item.complaint}}
+            </view>
+        </view>
+    </view>
+    <view class="ind-award flexrow"bindtap="bindaward"data-index="2">
+        <view class="ind-award-l">推荐受理</view>
+        <view class="ind-award-c">{{data.recommend.numbers}}人次</view>
+        <view class="ind-award-r flexrow">
+            <view class="ind-award-r-money">{{data.recommend.money}}元</view>
+            <view class="ind-award-r-arrow">
+                <image wx:if="{{sel==2}}" src="../imgs/xia.png"></image>
+                <image wx:else src="../imgs/shang.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="ind-award-conent"wx:if="{{sel==2}}">
+        <view class="ind-award-conent-i column"wx:for="{{data.recommend.recommendlist}}"wx:key="*this">
+            <view class="ind-award-conent-i-top flexrow">
+                <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
+                <view class="ind-award-conent-i-name">{{item.name}}</view>
+                <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
+                <view class="ind-award-conent-i-state">
+                    <view class="ind-hx"wx:if="{{item.state}}">
+                        {{item.recommended_money}}
+                    </view>
+                    <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
+                </view>
+            </view>
+            <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
+                <text class="row">投诉理由</text>{{item.complaint}}
+            </view>
+        </view>
+    </view>
+    <view class="ind-award flexrow"bindtap="bindaward"data-index="3">
+        <view class="ind-award-l">咨询预约</view>
+        <view class="ind-award-c">{{data.make.numbers}}人次</view>
+        <view class="ind-award-r flexrow">
+            <view class="ind-award-r-money">{{data.make.money}}元</view>
+            <view class="ind-award-r-arrow">
+                <image wx:if="{{sel==3}}" src="../imgs/xia.png"></image>
+                <image wx:else src="../imgs/shang.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="ind-award-conent"wx:if="{{sel==3}}">
+        <view class="ind-award-conent-i column"wx:for="{{data.make.makelist}}"wx:key="*this">
+                <view class="ind-award-conent-i-top flexrow">
+                    <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
+                    <view class="ind-award-conent-i-name">{{item.name}}</view>
+                    <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
+                    <view class="ind-award-conent-i-state">
+                        <view class="ind-hx"wx:if="{{item.state}}">
+                            {{item.consulting_money}}
+                        </view>
+                        <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
+                    </view>
+                </view>
+                <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
+                    <text class="row">投诉理由</text>{{item.complaint}}
+                </view>
+        </view>
+    </view>
+    <view class="ind-award flexrow"bindtap="bindaward"data-index="4">
+        <view class="ind-award-l">线上成交</view>
+        <view class="ind-award-c">{{data.deal.numbers}}人次</view>
+        <view class="ind-award-r flexrow">
+            <view class="ind-award-r-money">{{data.deal.money}}元</view>
+            <view class="ind-award-r-arrow">
+                <image wx:if="{{sel==4}}" src="../imgs/xia.png"></image>
+                <image wx:else src="../imgs/shang.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="ind-award-conent"wx:if="{{sel==4}}">
+        <view class="ind-award-conent-i column"wx:for="{{data.deal.rdeallist}}"wx:key="*this">
+                <view class="ind-award-conent-i-top flexrow">
+                    <!-- <view class="ind-award-conent-i-title">{{item.title}}</view> -->
+                    <view class="ind-award-conent-i-name">{{item.name}}</view>
+                    <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
+                    <view class="ind-award-conent-i-state">
+                        <view class="ind-hx"wx:if="{{item.state}}">
+                            {{item.clinch_money}}
+                        </view>
+                        <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
+                    </view>
+                </view>
+                <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
+                    <text class="row">投诉理由</text>{{item.complaint}}
+                </view>
+        </view>
+    </view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-current"bindtap="bindtab" data-index="1">
+            <image src="../imgs/p4-yja.png"></image>收益
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="2">
+            <image src="../imgs/p4-zxb.png"></image>资讯
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="3">
+            <image src="../imgs/p4-jgb.png"></image>机构
+        </view>
+    </view>
+</view>

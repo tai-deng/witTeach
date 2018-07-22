@@ -1,0 +1,42 @@
+<!--pages/port4/port4C/port4C.wxml-->
+<view class="container">
+    <view class="study-total flexrow">
+        <view class="study-total-l row">班级：{{data.clss_number}}</view>
+        <view class="study-total-l row">学生：{{data.student_number}}</view>
+    </view>
+    <view class="study-total-i"wx:for="{{data.class_name}}" wx:if="{{data.class_name[0]}}">
+        <view class="ind-award flexrow"bindtap="bindaward"data-index="{{index}}">
+            <view class="ind-award-l">{{item.class_name}}</view>
+            <view class="ind-award-c row">{{item.numbes}}人</view>
+            <view class="ind-award-r flexrow">
+                <image wx:if="{{sel==index}}" src="../../imgs/shang.png"></image>
+                <image wx:else src="../../imgs/xia.png"></image>
+            </view>
+        </view>
+        <view class="ind-award-conent"wx:if="{{sel==index}}">
+            <view class="ind-award-conent-i flexrow">
+                <view class="ind-award-conent-top row">姓  名</view>
+                <view class="ind-award-conent-top row">手机号</view>
+                <view class="ind-award-conent-top row">家长姓名</view>
+                <view class="ind-award-conent-top row">剩余课时</view>
+            </view>
+            <view class="ind-award-conent-i flexrow"wx:for="{{item.student}}"wx:key="*this"wx:for-item="it"wx:for-index="ind">
+                    <view class="ind-award-conent-i-title row">{{it.name}}</view>
+                    <view class="ind-award-conent-i-title row"bindtap="bindCall"data-call="{{ite.tel}}">{{it.tel}}</view>
+                    <view class="ind-award-conent-i-title row">{{it.parent}}</view>
+                    <view class="ind-award-conent-i-title row">{{it.section}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="1">
+            <image src="../../imgs/p4-yjb.png"></image>收益
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="2">
+            <image src="../../imgs/p4-zxb.png"></image>资讯
+        </view>
+        <view class="tabBar-item tabBar-current"bindtap="bindtab" data-index="3">
+            <image src="../../imgs/studyA.png"></image>学生
+        </view>
+    </view>
+</view>

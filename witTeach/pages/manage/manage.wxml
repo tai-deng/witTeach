@@ -1,0 +1,68 @@
+<!--pages/manage/manage.wxml-->
+<view class="container">
+    <view class="statistics-top">
+        <view class="record-bar">
+            <view class="record-bar-image flexrow"bindtap="bindrecord">
+                <image src="../imgs/jlv.png"></image>
+                <text>提现记录</text>
+            </view>
+        </view>
+        <view class="statistics-title row">可提现收益(元)</view>
+        <view class="statistics-money row">{{data.money}}</view>
+        <view class="statistics-bnt-bar row">
+            <view class="statistics-bnt row"bindtap="binddrawings">提现</view>
+        </view>
+    </view>
+    <view class="total-bar rows">
+        <picker bindchange="bindtotal" range="{{array}}">
+            <view class="total-bar-l flexrow">
+              <view class="total-bar-l-pic">
+                  <image src="../imgs/gold.png"></image>
+              </view>
+              <view class="total-bar-l-month row">{{month}}</view>
+              <view class="total-bar-l-sj">
+                  <image src="../imgs/sj.png"></image>
+              </view>
+              <view class="total-bar-l-sum">
+                  总收益<text>{{data.only}}</text>元
+              </view>
+            </view>
+          </picker>
+        <view class="total-bar-r">累计{{data.all}}</view>
+    </view>
+    <view class="totals">
+        <scroll-view scroll-y style="height:{{height}}rpx;">
+            <view class="total-i rows"wx:for="{{data.earnings}}"wx:key="*this">
+                <view class="serial-i-l flexrow">
+                    <view class="total-i-serial">
+                        <block wx:if="{{index==0}}">
+                            <image src="../imgs/num1.png"></image>
+                        </block>
+                        <block wx:elif="{{index==1}}">
+                            <image src="../imgs/num2.png"></image>
+                        </block>
+                        <block wx:elif="{{index==2}}">
+                            <image src="../imgs/num3.png"></image>
+                        </block>
+                        <block wx:else>
+                            {{index+1}}
+                        </block>
+                    </view>
+                    <view class="serial-i-pic">
+                        <image src="{{item.avatarurl?item.avatarurl:'../imgs/portrait.png'}}"></image>
+                    </view>
+                    <view class="serial-i-name">{{item.name}}</view>
+                </view>
+                <view class="serial-i-r">{{item.balance}}</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-current"bindtap="bindcount"data-index="1">
+            <image src="../imgs/rankingA.png"></image>统计排名
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="2">
+            <image src="../imgs/partnerB.png"></image>伙伴管理
+        </view>
+    </view>
+</view>

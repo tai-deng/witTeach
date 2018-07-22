@@ -1,0 +1,144 @@
+/* pages/indent/notSee/active/active.wxss */
+/* .adv-container{
+    padding-top: 20rpx;
+    padding-bottom: 100rpx;
+}
+.adv-title{
+    font-size: 34rpx;
+    color: #333;
+    margin-left: 30rpx;
+    margin-bottom: 30rpx;
+}
+.adv-info{
+    padding: 0 30rpx;
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}
+.adv-pic image,
+.adv-pic video{
+    width: 690rpx;
+    height: 350rpx;
+    display: block;
+    margin-left: 30rpx;
+}
+.adv-describe{
+    padding: 30rpx;
+    text-indent: 2em;
+    font-size: 28rpx;
+    color:#000;
+}*/
+.adv-bar {
+    width: 100vw;
+    height: 98rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #ff722a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.bar-left{
+    flex: 1;
+    height: 98rpx;
+}
+button{
+    border: none;
+    border-radius: 0;
+    font-size: 32rpx;
+    color: #fff;
+    border-left: 1px solid #fff;
+} 
+
+.art-container{
+    padding-top: 20rpx;
+    padding-bottom: 100rpx;
+}
+.art-title{
+    font-size: 34rpx;
+    color: #333;
+    margin-left: 30rpx;
+    margin-bottom: 30rpx;
+}
+.art-info{
+    padding: 0 30rpx;
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}
+.art-pic image{
+    width: 690rpx;
+    height: 350rpx;
+    display: block;
+    margin-left: 30rpx;
+}
+.art-describe{
+    padding: 30rpx;
+    text-indent: 2em;
+    font-size: 28rpx;
+    color:#000;
+}
+.art-bar{
+    height: 70rpx;
+    font-size: 28rpx;
+    color: #666;
+    padding-left: 30rpx;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.art-bar .bar{
+    width: 10rpx;
+    height: 26rpx;
+    background-color: #ff6633;
+    margin-right: 11rpx;
+}
+.art-institution{
+    padding:0 30rpx;
+}
+.art-institution-i{
+    border-bottom: 1px solid #ccc;
+    padding: 20rpx 0;
+}
+.art-institution-i-pic > image {
+    width: 120rpx;
+    height: 120rpx;
+    display: block;
+}
+.art-institution-i-info {
+    margin-left: 30rpx;
+    flex: 1;
+}
+.art-institution-i-title{
+    font-size: 30rpx;
+    color: #333;
+    margin-right: 10rpx;
+}
+.art-moods{
+    width: 80rpx;
+    height: 24rpx;
+    border: 1px solid #ff722a;
+    font-size: 20rpx;
+    border-radius: 4;
+    margin-left: 10rpx;
+    color: #ff722a;
+}
+.art-institution-i-loc{
+    font-size: 24rpx;
+    color: #666;
+}
+.art-institution-i-r{
+    width: 134rpx;
+    height: 50rpx;
+    border-radius: 10;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #ff6633;
+}
+.art-lookMore{
+    width: 220rpx;
+    height: 68rpx;
+    border: 1px solid #ff722a;
+    color: #ff6633;
+    font-size: 28rpx;
+    margin: 30rpx auto;
+}

@@ -1,0 +1,57 @@
+<!--pages/port3/port3B/port3B.wxml-->
+<view class="container">
+        <view class="statistics-top">
+            <view class="record-bar">
+                <view class="record-bar-image flexrow"bindtap="bindrecord">
+                    <image src="../../imgs/jlv.png"></image>
+                    <text>提现记录</text>
+                </view>
+            </view>
+            <view class="statistics-title row">可提现收益(元)</view>
+            <view class="statistics-money row">{{data.balance}}</view>
+            <view class="statistics-bnt-bar row">
+                <view class="statistics-bnt row"bindtap="binddrawings">提现</view>
+            </view>
+        </view>
+        <view class="total-bar rows">
+            <picker bindchange="bindtotal" range="{{array}}">
+                <view class="total-bar-l flexrow">
+                  <view class="total-bar-l-pic">
+                      <image src="../../imgs/gold.png"></image>
+                  </view>
+                  <view class="total-bar-l-month row">{{month}}</view>
+                  <view class="total-bar-l-sj">
+                      <image src="../../imgs/sj.png"></image>
+                  </view>
+                  <view class="total-bar-l-sum">
+                      总收益<text>{{data.day_money ? data.day_money : 0}}</text>元
+                  </view>
+                </view>
+            </picker>
+            <view class="total-bar-r">累计{{data.meter_money}}</view>
+        </view>
+        <view class="totals">
+            <scroll-view scroll-y wx:if="{{data.salesman[0]}}">
+                <view class="total-i rows"wx:for="{{data.salesman}}"wx:key="*this">
+                    <view class="serial-i-l flexrow">
+                        <view class="serial-i-name">{{item.name}}</view>
+                    </view>
+                    <view class="serial-i-r">{{item.balance}}</view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="tabBar-bottom">
+            <view class="tabBar-item tabBar-current"bindtap="bindcount"data-index="1">
+                <image src="../../imgs/profitA.png"></image>收益
+            </view>
+            <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="2">
+                <image src="../../imgs/formsB.png"/>统计报表
+            </view>
+            <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="3">
+                <image src="../../imgs/partnerB.png"/>合作伙伴
+            </view>
+            <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="4">
+                <image src="../../imgs/p4-jgb.png"/>机构
+            </view>
+        </view>
+    </view>

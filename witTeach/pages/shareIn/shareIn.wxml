@@ -1,0 +1,6 @@
+<!--pages/shareIn/shareIn.wxml-->
+<view class="share-container">
+    <view class="title row">
+        <image src="../imgs/lobob.png"/>
+    </view>
+</view>

@@ -1,0 +1,104 @@
+<!--pages/port4/port4C/port4C.wxml-->
+<form bindsubmit="bindsearch" report-submit="true">
+<view class="container">
+    <view class="search-war flexrow">
+        <view class="search-l flexrow">
+            <image src="../../imgs/search.png"></image>
+            <input type="text" name="search" value="{{search}}"/>
+        </view>
+        <!-- <view class="search-r">搜索</view> -->
+        <button formType ="submit" class="search-r">搜索</button>
+    </view>
+    <view class="filtrate flexrow">
+        <view class="filtrate-time"bindtap="bindfilTime">
+            <view class="filtrate-title {{filTime ? 'a':'b'}}">推荐</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{filTime==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{filTime==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <view class="filtrate-time"bindtap="bindread">
+            <view class="filtrate-title {{read ? 'a':'b'}}">时间</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{read==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{read==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <view class="filtrate-time"bindtap="bindintention">
+            <view class="filtrate-title {{intention ? 'a':'b'}}">学费</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{intention==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{intention==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <picker class="filtrate-time" bindchange="bindinstitution" range="{{orgtype}}">
+            <view class="filtrate-time">
+                <view class="filtrate-title {{institution ? 'a':'b'}}">机构类型</view>
+                <view class="trigon">
+                    <view class="trigon-down">
+                        <image src="../../imgs/down-a.png"wx:if="{{institution}}"></image>
+                        <image src="../../imgs/down-b.png"wx:else></image>
+                    </view>
+                </view>
+            </view>
+        </picker>
+    </view>
+    <scroll-view scroll-y="true">
+        <view class="content-i"wx:for="{{data}}"wx:key="*this"bindtap="bindcontent"data-id="{{item.id}}">
+            <view class="content-i-top flexrow">
+                <view class="content-i-top-l">
+                    <image src="{{item.image}}"></image>
+                </view>
+                <view class="content-i-top-r">
+                    <view class="content-i-top-r-title">{{item.name}}</view>
+                    <view class="content-i-top-r-introduce">{{item.content}}</view>
+                </view>
+                <view class="content-i-top-r-r">
+                    <view class="content-i-top-r-r-r">分享阅读:<text>{{item.read_money}}</text></view>
+                    <view class="content-i-top-r-r-r">意向咨询:<text>{{item.read_money}}</text></view>
+                    <view class="content-i-top-r-r-r">推荐学生:<text>{{item.recommend_money}}</text></view>
+                    <view class="content-i-top-r-r-r">线上购买:<text>{{item.purchase}}</text></view>
+                </view>
+            </view>
+            <view class="content-i-bon rows">
+                <view class="content-i-bon-l flexrow"catchtap="catchloc">
+                    <image src="../../imgs/map-loc.png"></image>
+                    {{item.area}}
+                </view>
+                <view class="content-i-bon-r">
+                    学费{{item.tuition}}元起
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="1">
+            <image src="../../imgs/p4-yjb.png"></image>收益
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="2">
+            <image src="../../imgs/p4-zxb.png"></image>资讯
+        </view>
+        <view class="tabBar-item tabBar-current"bindtap="bindtab" data-index="3">
+            <image src="../../imgs/p4-jga.png"></image>机构
+        </view>
+    </view>
+</view></form>

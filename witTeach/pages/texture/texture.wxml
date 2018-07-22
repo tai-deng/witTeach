@@ -1,0 +1,154 @@
+<!--pages/texture/texture.wxml-->
+<view class="container">
+    <view class="idInfo">
+        <view class="idInfo-top rows">
+            <view class="idInfo-top-l flexrow">
+                <text class="id-balance">账户余额:</text>
+                <text class="id-balance-money">{{data.balance}}</text>
+            </view>
+            <view class="idInfo-top-r row"bindtap="bindrecharge">
+                充值
+            </view>
+        </view>
+        <view class="idInfo-bottom">
+            <text class="id-balance">今日消费:</text>
+            <text class="today-money">{{data.day_money}}</text>
+        </view>
+    </view>
+    <view class="idInfo-put">
+        <view class="put-top row">
+            <text class="put-top-l">课程收入:</text>
+            <text class="put-top-r">{{data.income}}元</text>
+        </view>
+        <view class="put-bottom row">
+            <view class="extractMoney row"bindtap="bindextractMoney">提现</view>
+            <view class="extractShift row"bindtap="bindextractShift">收支明细</view>
+        </view>
+    </view>
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">线上报名缴费</text>
+    </view>
+    <view class="on-line">
+        <view class="on-line-i"wx:for="{{data.curriculum}}"wx:key="{{index}}">
+            <view class="on-line-i-t flexrow">
+                <view class="on-line-name">{{item.name}}</view>
+                <view class="on-line-phone">{{item.tel}}</view>
+                <view class="on-line-course">{{item.curriculum}}</view>
+                <view class="on-line-cost">已缴{{item.money}}元</view>
+            </view>
+            <view class="on-line-poke">
+                <text class="on-line-date">{{item.create_time}}</text>
+                <!-- <text class="on-line-time">{{item.time}}</text> -->
+            </view>
+        </view>
+    </view>
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">推荐生源</text>
+    </view>
+    <view class="recommend">
+        <view class="recommend-i"wx:for="{{data.recommend}}"wx:key="{{index}}">
+            <view class="recommend-i-t flexrow">
+                <view class="recommend-name">{{item.name}}</view>
+                <view class="recommend-phone">
+                    <view class="recommend-phone-t"wx:if="{{item.state == 0}}">已被推荐给{{item.recommend_number}}人</view>
+                    <view class="recommend-phone-t"wx:else>{{item.tel}}</view>
+                    <!-- <view class="recommend-phone-b">(来源: {{item.source}})</view> -->
+                </view>
+            </view>
+            <view class="recommend-poke">
+                <view class="recommend-date-war"wx:if="{{item.state == 0}}">
+                    <view class="recommend-date-bar row"bindtap="bindrecommend">
+                        ￥{{item.recommend_see}}查看
+                    </view>
+                    <view class="recommend-complain-war"wx:if="{{item.complaint}}">
+                        <text class="recommend-complain row">投诉理由</text>
+                        <text class="recommend-complain-cnt">{{item.complaint}}</text>
+                    </view>
+                </view>
+                <view class="recommend-time flexrow"wx:else>
+                    <view class="recommend-time-l">已查看</view>
+                    <picker bindchange="bindcomplain" range="{{array}}">
+                        <view class="recommend-time-r row">投诉</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">咨询生源</text>
+    </view>
+    <view class="recommend">
+        <view class="recommend-i"wx:for="{{data.consultation}}"wx:key="{{index}}">
+            <view class="recommend-i-t flexrow">
+                <view class="recommend-name">{{item.name}}</view>
+                <view class="recommend-phone">
+                    <view class="recommend-phone-t"wx:if="{{item.state == 0}}">已被推荐给{{item.recommend_number}}人</view>
+                    <view class="recommend-phone-t"wx:else>{{item.tel}}</view>
+                </view>
+            </view>
+            <view class="recommend-poke">
+                <view class="recommend-date-war"wx:if="{{item.state == 0}}">
+                    <view class="recommend-date-bar row"bindtap="bindrecommend">
+                        ￥{{item.recommend_see}}查看
+                    </view>
+                    <view class="recommend-complain-war"wx:if="{{item.complaint}}">
+                        <text class="recommend-complain row">投诉理由</text>
+                        <text class="recommend-complain-cnt">{{item.complaint}}</text>
+                    </view>
+                </view>
+                <view class="recommend-time flexrow"wx:else>
+                    <view class="recommend-time-l">已查看</view>
+                    <picker bindchange="bindcomplain" range="{{array}}">
+                        <view class="recommend-time-r row">投诉</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">线上成交资源</text>
+    </view>
+    <view class="on-line">
+        <view class="on-line-i"wx:for="{{data.curriculum_type}}"wx:key="{{index}}">
+            <view class="on-line-i-t flexrow">
+                <view class="on-line-name">{{item.name}}</view>
+                <view class="on-line-phone">{{item.tel}}</view>
+                <view class="on-line-course">{{item.curriculum}}</view>
+                <view class="on-line-cost">
+                    付佣{{item.money}}元
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="lineBar flexrow barA">
+        <view class="lineBar-l"></view>
+        <text class="lineBar-r">分享阅读</text>
+    </view>
+    <view class="share-read flexrow">
+        今日被分享阅读<text class="read">{{data.share}}</text>次
+    </view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-current"bindtap="bindcount"data-index="1">
+            <image src="../imgs/lookA.png"></image>推广查询
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindcount"data-index="2">
+            <image src="../imgs/setB.png"></image>推广设置
+        </view>
+    </view>
+    <view class="tostMoney row" wx:if="{{flag}}">
+        <form bindsubmit="bindfinish" report-submit="true">
+            <view class="tostCont columns">
+                <input type="number"placeholder="输入充值金额"placeholder-style="color:#999;font-size:28rpx;"name="money"/>
+                <view class="btnBar flexrow">
+                    <view class="finish row" bindtap="bindcancel">取消</view>
+                    <button formType ="submit">确认</button>
+                </view>
+                
+            </view>
+        </form>
+    </view>
+</view>

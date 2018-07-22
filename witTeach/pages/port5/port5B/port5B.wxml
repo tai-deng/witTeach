@@ -1,0 +1,96 @@
+<!--pages/port4/port4B/port4B.wxml-->
+<view class="container">
+    <view class="search-war flexrow">
+        <view class="search-l flexrow">
+            <image src="../../imgs/search.png"></image>
+            <input type="text"bindinput="bindsearch"/>
+        </view>
+        <view class="search-r row"catchtap="searchG0">搜索</view>
+        <view class="search-r row"catchtap="bindadd">
+            <image src="../../imgs/add.png"></image>
+        </view>
+    </view>
+    <view class="filtrate flexrow">
+        <view class="filtrate-time"bindtap="bindfilTime">
+            <view class="filtrate-title {{filTime ? 'a':'b'}}">时间</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{filTime==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{filTime==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <view class="filtrate-time"bindtap="bindread">
+            <view class="filtrate-title {{read ? 'a':'b'}}">阅读量</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{read==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{read==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <view class="filtrate-time"bindtap="bindintention">
+            <view class="filtrate-title {{intention ? 'a':'b'}}">意向数</view>
+            <view class="trigon">
+                <view class="trigon-up">
+                    <image src="../../imgs/up-a.png"wx:if="{{intention==1}}"></image>
+                    <image src="../../imgs/up-b.png"wx:else></image>
+                </view>
+                <view class="trigon-down">
+                    <image src="../../imgs/down-a.png"wx:if="{{intention==2}}"></image>
+                    <image src="../../imgs/down-b.png"wx:else></image>
+                </view>
+            </view>
+        </view>
+        <picker class="filtrate-time" bindchange="bindinstitution" range="{{orgtype}}">
+            <view class="filtrate-time">
+                <view class="filtrate-title {{institution ? 'a':'b'}}">发布类型</view>
+                <view class="trigon">
+                    <view class="trigon-down">
+                        <image src="../../imgs/down-a.png"wx:if="{{institution}}"></image>
+                        <image src="../../imgs/down-b.png"wx:else></image>
+                    </view>
+                </view>
+            </view>
+        </picker>
+    </view>
+    <scroll-view scroll-y="true">
+        <view class="content-i"wx:for="{{data}}"wx:key="*this"bindtap="bindcontent"data-id="{{item.id}}">
+            <view class="content-i-top flexrow">
+                <view class="content-i-top-l">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class="content-i-top-r">
+                    <view class="content-i-top-r-title">{{item.title}}</view>
+                    <view class="content-i-top-r-date">{{item.create_time}}</view>
+                    <view class="content-i-top-r-introduce">{{item.introduction}}</view>
+                </view>
+            </view>
+            <view class="content-i-bon rows">
+                <view class="content-i-bon-l">已分享{{item.share_number}}次</view>
+                <view class="content-i-bon-r flexrow">
+                    {{item.reading_volume}}阅读量　{{item.intention_number}}意向数
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="tabBar-bottom">
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="1">
+            <image src="../../imgs/p4-yjb.png"></image>收益
+        </view>
+        <view class="tabBar-item tabBar-current"bindtap="bindtab" data-index="2">
+            <image src="../../imgs/p4-zxa.png"></image>资讯
+        </view>
+        <view class="tabBar-item tabBar-other"bindtap="bindtab" data-index="3">
+            <image src="../../imgs/studyB.png"></image>学生
+        </view>
+    </view>
+</view>

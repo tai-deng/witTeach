@@ -1,0 +1,98 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx5d4691cef46e1189",
+	"projectname": "%E6%85%A7%E6%95%99",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "3端",
+					"pathName": "pages/port4/port4",
+					"query": "id=7"
+				},
+				{
+					"id": 1,
+					"name": "1 推广设置",
+					"pathName": "pages/texture/texture",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "游客",
+					"pathName": "pages/index/index",
+					"query": "id=9&user_id=6"
+				},
+				{
+					"id": 4,
+					"name": "4端，省市级代理",
+					"pathName": "pages/port3/port3B/port3B",
+					"query": "id=1"
+				},
+				{
+					"id": 5,
+					"name": "4-2 老师",
+					"pathName": "pages/port5/port5",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "2",
+					"pathName": "pages/manage/manage",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "机构",
+					"pathName": "pages/terrace/terrace",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "家长",
+					"pathName": "pages/indent/indent",
+					"query": "id=9"
+				},
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "pages/shareIn/shareIn",
+					"query": "id=9&user_id=6"
+				}
+			]
+		}
+	}
+}

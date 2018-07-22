@@ -1,0 +1,94 @@
+/* pages/texture/textureSetting/textureSetting.wxss */
+.container{
+    padding-bottom: 98rpx;
+}
+.lineBar{
+    padding: 30rpx 20rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+.lineBar-l{
+    margin-right: 10rpx;
+    width: 10rpx;
+    height: 26rpx;
+    background-color: #ff722a;
+}
+.barA{
+    background-color: #f5edea;
+}
+.lineTitle{
+    padding-left: 32rpx;
+    line-height: 100rpx;
+    border-bottom: 10rpx solid #fff5f3;
+    font-size: 32rpx;
+    color: #000;
+}
+.lineTitle-l{
+    width: 14rpx;
+    height: 14rpx;
+    border: 4rpx solid #ff6633;
+    border-radius: 50%;
+    margin-right: 12rpx;
+}
+.content-warp{
+    padding: 0rpx 30rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+.content-warp > view:nth-last-child(1){
+    border:none;
+}
+.content-i{
+    line-height: 120rpx;
+    font-size: 30rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+.content-i-l{
+    color: #000;
+}
+.content-i-r-xg{
+    padding-left: 25rpx;
+}
+.content-i-r-xg >image{
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.content-i-r-in{
+    color: #ff6633;
+}
+.content-i-r-in > input {
+    width: 200rpx;
+    text-align: right;
+    margin-right: 10rpx;
+}
+.content-i-r-in > text {
+    color: #999999;
+}
+.tab-bot{
+    width: 100vw;
+    height: 98rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 2;
+    font-size: 32rpx;
+    border-top: 1px solid #f0f0f0;
+}
+switch{
+    transform: scale(0.8)
+}
+.move{
+    border-top:20rpx solid #f0f0f0;
+    border-bottom: 40rpx solid #f0f0f0;
+}
+.tab-bot-r{
+    flex: 1;
+    background-color: #ff6633;
+    color: #fff;
+}
+.tab-bot-l{
+    flex: 1;
+    background-color: #fff;
+    color: #ff6633;
+}

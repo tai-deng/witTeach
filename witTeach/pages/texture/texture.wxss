@@ -1,0 +1,256 @@
+/* pages/texture/texture.wxss */
+.container{
+    padding-bottom: 98rpx;
+}
+.idInfo{
+    background-color: #ff6633;
+    color: #fff;
+    padding: 40rpx 30rpx;
+}
+.id-balance{
+    margin-right: 28rpx;
+    font-size: 28rpx;
+}
+.id-balance-money{
+    font-size: 60rpx;
+}
+.idInfo-top-r{
+    width: 200rpx;
+    height: 68rpx;
+    font-size: 32rpx;
+    background-color: #ffc95a;
+    color: #ed4c14;
+    border-radius: 4rpx;
+}
+.idInfo-bottom{
+    margin-top: 10rpx;
+}
+.today-money{
+    font-size: 34rpx;
+}
+.idInfo-put{
+    background-color: #fff;
+    padding-top: 50rpx;
+    padding-bottom: 40rpx;
+}
+.put-top{
+    margin-bottom: 30rpx;
+}
+.put-top-l{
+    font-size: 28rpx;
+    color: #666666;
+    margin-right: 24rpx;
+}
+.put-top-r{
+    font-size: 46rpx;
+    color: #666;
+}
+.extractMoney{
+    width: 200rpx;
+    height: 68rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #ff722a;
+    border-radius: 4rpx;
+    margin-right: 30rpx;
+}
+.extractShift{
+    width: 200rpx;
+    height: 68rpx;
+    font-size: 32rpx;
+    color: #ff722a;
+    background-color: #fff;
+    border-radius: 4rpx;
+    border: 1px solid #ff722a;
+}
+.lineBar{
+    padding: 30rpx 20rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+.lineBar-l{
+    margin-right: 10rpx;
+    width: 10rpx;
+    height: 26rpx;
+    background-color: #ff722a;
+}
+.barA{
+    background-color: #f5edea;
+}
+.on-line,
+.recommend{
+    padding: 0 30rpx;
+    font-size: 30rpx;
+    columns: #333;
+}
+.on-line > view:nth-last-child(1),
+.recommend > view:nth-last-child(1),
+.recommend-i > view:nth-last-child(1){
+    border:none;
+}
+.on-line-i{
+    padding: 20rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+.recommend-i{
+    display: flex;
+    padding: 20rpx;
+    height: 122rpx;
+    border-bottom: 1px solid #e1e1e1;
+}
+.on-line-phone{
+    margin: 0 30rpx;
+}
+.on-line-cost{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 26rpx;
+}
+.on-line-poke{
+    font-size: 20rpx;
+    color: #999;
+    margin-top: 16rpx;
+    text-align: right;
+}
+.on-line-date{
+    margin-right: 10rpx;
+}
+.recommend-name,
+.recommend-phone{
+    align-self: flex-start;
+}
+.recommend-name{
+    width: 140rpx;
+}
+.recommend-phone-b{
+    color: #666;
+    margin-top: 8rpx;
+    font-size: 24rpx;
+}
+.recommend-poke{
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.recommend-date-war{
+    width: 100%;
+    text-align: right;
+}
+.recommend-complain-war{
+    width: 100%;
+    display: flex;
+    margin-top: 8rpx;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.recommend-date-bar{
+    padding: 2rpx 4rpx;
+    color: #ff6633;
+    border: 1px solid #ff6633;
+    font-size: 28rpx;
+    border-radius: 6rpx;
+    display: inline-block;
+}
+.recommend-complain{
+    width: 90rpx;
+    height: 24rpx;
+    background-color:#d3e6ff;
+    font-size: 20rpx;
+    color: #2984ff;
+}
+.recommend-complain-cnt{
+    margin-left: 10rpx;
+    font-size: 20rpx;
+    color: #666;
+}
+.recommend-time-l{
+    font-size: 30rpx;
+    color: #999;
+    margin-right: 26rpx;
+}
+.recommend-time-r{
+    width: 86rpx;
+    height: 50rpx;
+    border: 1px solid #2984ff;
+    font-size: 28rpx;
+    color: #2984ff;
+    border-radius: 6rpx;
+}
+.share-read{
+    padding-left: 30rpx;
+    height: 120rpx;
+    font-size: 28rpx;
+    color: #666666;
+}
+.share-read > text {
+     color: #ff722a;
+}
+.tab-bot{
+    width: 100vw;
+    height: 98rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 2;
+    font-size: 32rpx;
+    border-top: 1px solid #f0f0f0;
+}
+.tab-bot-l{
+    flex: 1;
+    background-color: #ff6633;
+    color: #fff;
+}
+.tab-bot-r{
+    flex: 1;
+    background-color: #fff;
+    color: #ff6633;
+}
+
+.tostMoney{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, .5);
+}
+.tostCont{
+    width: 680rpx;
+    height: 400rpx;
+    border-radius: 10rpx;
+    background-color: #ff6633;
+    padding-top: 100rpx;
+    padding-bottom: 40rpx;
+}
+.tostCont input {
+    width: 400rpx;
+    height: 70rpx;
+    border: 1px solid #ccc;
+    border-radius: 15rpx;
+    font-size: 28rpx;
+    padding-left: 20rpx;
+    background-color: #fff;
+}
+.tostCont button {
+    font-size: 30rpx;
+    color: #fff;
+    background-color: green;
+    width: 180rpx;
+    height: 70rpx;
+    border-radius: 10rpx;
+}
+.finish{
+    background-color: #999;
+    border-radius: 10rpx;
+    border: 1px solid #ccc;
+    width: 180rpx;
+    height: 70rpx;
+    color: #fff;
+    font-size: 30rpx;
+    margin-right: 100rpx;
+}

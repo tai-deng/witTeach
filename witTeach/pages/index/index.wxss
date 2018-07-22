@@ -1,0 +1,359 @@
+/**index.wxss**/
+.contain{
+}
+.mine{
+    position: fixed;
+    left: 38rpx;
+    bottom: 120rpx;
+    z-index: 1;
+    border-radius: 50%;
+    width: 64rpx;
+    height: 64rpx;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+}
+.mine image{
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.mine-manage {
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    top: 0;
+    left: 68rpx;
+}
+.mine-manage image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+.mine-teacher {
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    top: 0;
+    left: 138rpx;
+}
+.mine-teacher image {
+    width: 48rpx;
+    height: 48rpx;
+    display: block;
+}
+
+
+
+
+.in-container{
+    position: relative;
+    padding-bottom: 98rpx;
+}
+swiper image {
+    width: 750rpx;
+    height: 350rpx;
+    display: block;
+}
+.in-enter {
+    width: 166rpx;
+    height: 70rpx;
+    font-size:24rpx;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(255, 102, 51, 0.8); 
+    z-index: 2;
+}
+.in-school {
+    padding: 30rpx;
+}
+.in-school-name {
+    font-size: 30rpx;
+    color: #000;
+}
+.in-school-loc image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    margin-right: 13rpx;
+}
+.in-school-loc {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 16rpx;
+}
+.in-school-r image{
+    width: 64rpx;
+    height: 64rpx;
+    display: block;
+}
+.in-school-intro-l {
+    font-size: 28rpx;
+    color: #666;
+    margin-top: 16rpx;
+}
+.in-school-intro-more {
+    font-size: 20rpx;
+    color: #999;
+}
+.in-tab {
+    width: 100vw;
+    height: 98rpx;
+    display: flex;
+    align-items: center;
+    background-color: #f5edea;
+    border-bottom: 1px solid #d7d7d7;
+    border-top: 1px solid #d7d7d7;
+}
+.in-tab view{
+    flex: 1;
+    font-size: 30rpx;
+}
+.taba {
+    color: #ff6633;
+}
+.tabb {
+    color: #666;
+}
+.in-school-intro-cet{
+    text-indent: 2em;
+    font-size: 28rpx;
+    color: #666;
+}
+.in-school-away{
+    font-size: 20rpx;
+    color: #999;
+    margin-top: 15rpx;
+}
+.in-school-details{
+    padding: 0 30rpx;
+}
+.in-school-details > view:nth-last-child(1){
+    border:none;
+}
+.in-school-details-i{
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e1e1e1;
+}
+.in-school-lesson-info{
+    flex: 1;
+}
+.in-school-lesson-pic > image {
+    width: 110rpx;
+    height: 110rpx;
+    display: block;
+}
+.in-school-lesson-pic-r{
+    margin-left: 26rpx;
+}
+.in-school-lesson-title{
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 6rpx;
+}
+.in-school-lesson-state{
+    font-size: 24rpx;
+    color: #666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.in-school-cost{
+    font-size: 20rpx;
+    color: #666;
+    text-decoration:line-through;
+}
+.in-school-price{
+    font-size: 20rpx;
+    color: #ff6633;
+}
+.in-school-price>text{
+    font-size: 28rpx;
+}
+.in-school-sale{
+    width: 168rpx;
+    height: 60rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    background-color: #fe813e;
+    font-size: 28rpx;
+}
+.in-nearby {
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    padding-left: 30rpx;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+    height: 70rpx;
+}
+.in-bar{
+    width: 10rpx;
+    height: 26rpx;
+    background-color: #ff6633;
+    margin-right: 12rpx;
+}
+.in-nearby-pic >image {
+    margin-right: 30rpx;
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+}
+.in-nearby-r{
+    flex: 1;
+}
+.in-nearby-r-t-l{
+    font-size: 30rpx;
+    color: #333;
+}
+.in-nearby-r-t-r > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.in-nearby-lc{
+    margin-top: 16rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+.in-nearby-lc > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.in-consult{
+    width: 100vw;
+    height: 98rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #ff6633;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.in-money{
+    position:fixed;
+    right: 30rpx;
+    bottom: 126rpx;
+    z-index: 1;
+    background-color: #fff;
+}
+.in-money>image{
+    width: 64rpx;
+    height: 64rpx;
+    display: block;
+}
+
+.in-toast{
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}
+.in-toast-cet {
+    border: 1px solid #ff6633;
+    width: 690rpx;
+    border: 4rpx;
+    transform: translateY(-60rpx);
+    background-color: #fff;
+    padding-bottom: 20rpx;
+}
+.in-toast-cet-t {
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #ff6633;
+    position: relative;
+    height: 100rpx;
+    margin-bottom: 40rpx;
+}
+.in-toast-cet-t > image {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.picker-r image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+}
+.in-toast-type-in{
+    width: 630rpx;
+    height: 88rpx;
+    border: 1px solid #e1e1e1;
+    border-radius: 4rpx;
+    padding-left: 30rpx;
+    margin-left: 30rpx;
+    margin-bottom: 30rpx;
+}
+.in-toast-type-inb {
+    width: 630rpx;
+    height: 70rpx;
+    margin-left: 30rpx;
+    font-size: 30rpx;
+    color: #666;
+}
+.in-toast-type-inb>text{
+    color: #ff6633;
+}
+.in-toast-type-in > input{
+    flex: 1;
+    font-size: 30rpx;
+    color: #999;
+}
+.in-toast-submit{
+    background-color: #ff6633;
+    color: #fff;
+    font-size: 32rpx;
+    border-radius: 4rpx;
+    width: 630rpx;
+    height: 88rpx;
+    margin-left: 30rpx;
+}
+.picker{
+    height: 88rpx;
+    font-size: 30rpx;
+    color: #999;
+    padding-right: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.in-toast-offb {
+    position: relative;
+    height: 88rpx;
+}
+.in-toast-offb > image {
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+.in-toast-offb-title{
+    font-size: 32rpx;
+    color: #ff6633;
+    margin-bottom: 40rpx;
+}
+.in-toast-offb-cet{
+    font-size: 28rpx;
+    color: #666;
+    margin-bottom: 70rpx;
+}
+
+
+button{
+    background-color: #fff;
+}
