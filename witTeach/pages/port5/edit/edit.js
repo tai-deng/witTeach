@@ -149,33 +149,32 @@ Page({
         wx.showLoading({
           title: '视频上传中',
         })
-        console.log(res)
         let tempFilePaths = res.tempFilePath;
         wx.uploadFile({
-          url: request.config.url + 'uploadFile',
+          url: request.config.url + 'api/huijiao/uploadFile',
           filePath: tempFilePaths,
           name: 'video',
           formData:{ 
             mstr: bs.cache("mstr"),
           },
           success(res) {
-            console.log(res)
-            // wx.hideLoading()
-            // if(res.data == "上传文件大小不符！"){
-            //   wx.showToast({
-            //     title: '上传文件大小不符！',
-            //     image: 'none',
-            //     duration: 2000
-            //   })
-            // }else{
-            //   videoData=request.config.url + res.data;
-            //   video=res.data;
-            //   console.log(video,videoData)
-            //   that.setData({
-            //     videoData:videoData,
-            //     upUrl:video
-            //   })
-            // }
+            wx.hideLoading()
+            if(res.data == "上传文件大小不符！"){
+              wx.showToast({
+                title: '上传文件大小不符！',
+                image: 'none',
+                duration: 2000
+              })
+            }else{
+              let videoFile = JSON.parse(res.data);
+              videoData=request.config.url + videoFile.data.vido;
+              video=videoFile.data.vido;
+              console.log(video,videoData)
+              that.setData({
+                videoData:videoData,
+                upUrl:video
+              })
+            }
           }
         })
       }

@@ -47,6 +47,11 @@ textarea {
     margin-right: 15rpx;
     position: relative;
 }
+.imgs > video {
+    width: 128rpx;
+    height: 128rpx;
+    display: block;
+}
 .imgs > image:nth-child(1) {
     width: 128rpx;
     height: 128rpx;
