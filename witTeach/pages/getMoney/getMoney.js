@@ -43,9 +43,9 @@ Page({
     // 选择卡片
     var data = this.data.data;
     var index = e.currentTarget.dataset.index;
-    var name = data[index].name;
-    var bank_name = data[index].bank_name;
-    var cardNum = data.moneyId[index].bank_num;
+    let name = data[index].name;
+    let bank_name = data[index].bank_name;
+    let cardNum = data[index].bank_num;
     this.setData({cardNum,name,bank_name})
   },
   bindcarName(e) {
@@ -168,20 +168,27 @@ Page({
       }
     }
   },
-  getData(id) {
+  getData() {
     let that = this;
+    let pid = bs.cache("pid")
     request.request({
         site: "Bank",
         data: {
-          pid: id,
+          pid: pid,
         }
       },
       function (res) {
-        console.log(res)
-        that.setData({
-          id: id,
-          data:res
-        })
+        console.log(pid,res)
+        if(res){
+          that.setData({
+            id: pid,
+            data:res
+          })
+        }else{
+          that.setData({
+            id: pid,
+          })
+        }
       }
     )
   },
