@@ -12,12 +12,13 @@ Page({
   },
   binddetails(e) {
     let id = e.currentTarget.dataset.id;
+    console.log("school_id",id)
     let tip = bs.cache("tip");
     let url = '';
     if (tip) {
-      url = "../terrace/terrace?" + id;
+      url = "../terrace/terrace?id=" + id;
     } else {
-      url = '../index/index?' + id;
+      url = '../index/index?id=' + id;
     }
     wx.navigateTo({
       url

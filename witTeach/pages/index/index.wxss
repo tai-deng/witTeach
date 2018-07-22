@@ -47,6 +47,8 @@
 
 .in-container{
     position: relative;
+    width: 100vw;
+    height: 100%;
     padding-bottom: 98rpx;
 }
 swiper image {

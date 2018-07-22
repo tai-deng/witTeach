@@ -21,9 +21,22 @@
         </view>
     </block>
     <block wx:else>
+    <view class="art-warp">
+        <view class="art-title">
+            {{curriculum.title}}
+        </view>
+        <view class="art-info rows">
+            <view class="art-info-l">
+                {{curriculum.create_time}}{{curriculum.name}}
+            </view>
+            <view class="art-info-r">
+                {{curriculum.reading_volume}}阅读量
+            </view>
+        </view>
         <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
     </block>
-
+    <!-- curriculum -->
     <view class="art-bar flexrow">
         <view class="bar"></view>
         推荐机构
@@ -50,7 +63,7 @@
                 </view> -->
             <!-- </view> -->
         </view>
-        <view class="art-lookMore row"bindtap="bindlookMore">
+        <view class="art-lookMore row"bindtap="bindlookMore"wx:if="{{isMore}}">
             查看更多机构
         </view>
     </view>

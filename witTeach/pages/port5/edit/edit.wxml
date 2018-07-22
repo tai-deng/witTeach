@@ -13,8 +13,8 @@
         <textarea type="text" value="{{leave}}" name="textarea" placeholder="课评与说说" bindinput="bindinput"/>
     </view>
     <view class="uploadTab flexrow">
-        <view class="uploadTab-left row {{upload == 2?'taba':'tabb'}}"data-index="1" bindtap="bindTab">上传图片</view>
-        <view class="uploadTab-left row {{upload == 1?'taba':'tabb'}}"data-index="2" bindtap="bindTab">上传视频</view>
+        <view class="uploadTab-left row {{upload == 2?'taba':'tabb'}}"data-index="2" bindtap="bindTab">上传图片</view>
+        <view class="uploadTab-left row {{upload == 1?'taba':'tabb'}}"data-index="1" bindtap="bindTab">上传视频</view>
     </view>
     <view class="add-img flexrow">
         <view class="imgs"wx:if="{{imageData}}">

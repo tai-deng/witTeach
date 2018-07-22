@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="contain"><view class="in-container">
+    <view class="in-container">
     <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="rgba(255, 102, 51, 0.8)" autoplay="true" circular="true">
         <block wx:for="{{basic.img}}"wx:key="*this">
             <swiper-item>
@@ -86,7 +86,7 @@
             </view>
         </view>
     </view>
-    <view class="in-nearby"><view class="in-bar"></view>附近校区</view>
+    <view class="in-nearby"wx:if="{{basic.campus[0]}}"><view class="in-bar"></view>附近校区</view>
     <view class="in-school-details">
         <view class="in-school-details-i"wx:for="{{basic.campus}}"wx:key="*this">
             <view class="in-nearby-pic">
@@ -164,7 +164,7 @@
             </view>
         </view>
     </view>
-</view>
+
   <!-- <view class="mine row"bindtap="bindshunt">
     <image src="../imgs/mine.png"></image>
     <view class="mine-shunt"wx:if="{{shunt}}">

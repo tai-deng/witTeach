@@ -24,10 +24,10 @@ Page({
   },
   binddel(e) {
     let upload = this.data.upload;
-    if (upload == 1) {
+    if (upload == 2) {
       this.setData({imageData:'',upUrl:''})
     }
-    if (upload == 2) {
+    if (upload == 1) {
       this.setData({videoData:'',upUrl:''})
     }
   },

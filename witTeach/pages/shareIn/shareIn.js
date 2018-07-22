@@ -20,7 +20,7 @@ Page({
       bs.cache("otherUerId", ops["user_id"]);
     }
     let target = ops.target;
-    let arg = `user_id=${ops.user_id}&id=${ops.id}`;
+    let arg = `id=${ops.id}&user_id=${ops.user_id}`;
     let tip = bs.cache("tip");
     if (target == "institution") {
       if (tip) {

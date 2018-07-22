@@ -25,7 +25,7 @@
     <view class="adv-describe">
         <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
-    <view class="adv-bar row"bindtap="binddetails" data-id="{{data.id}}" hidden="{{noSee}}">
+    <view class="adv-bar row"bindtap="binddetails" data-id="{{data.school_id}}" hidden="{{noSee}}">
         机构详情
     </view>
 </view>

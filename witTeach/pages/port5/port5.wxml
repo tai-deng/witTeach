@@ -101,7 +101,7 @@
                     <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
                     <view class="ind-award-conent-i-state row">
                         <view class="ind-hx"wx:if="{{item.state}}">
-                            {{item.consulting_money ? item.consulting_money : 100}}
+                            {{item.consulting_money}}
                         </view>
                         <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
                     </view>
@@ -124,20 +124,15 @@
     </view>
     <view class="ind-award-conent"wx:if="{{sel==4}}">
         <view class="ind-award-conent-i column"wx:for="{{data.deal.rdeallist}}"wx:key="*this">
-                <view class="ind-award-conent-i-top flexrow">
-                    <view class="ind-award-conent-i-name">{{item.name}}</view>
-                    <view class="ind-award-conent-i-tel">{{item.tel}}</view>
-                    <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
-                    <view class="ind-award-conent-i-state">
-                        <view class="ind-hx"wx:if="{{item.clinch_money}}">
-                            {{item.clinch_money}}
-                        </view>
-                        <view class="ind-award-conent-i-stateb"wx:else>未查看</view>
-                    </view>
+            <view class="ind-award-conent-i-top flexrow">
+                <view class="ind-award-conent-i-name">{{item.name}}</view>
+                <view class="ind-award-conent-i-tel">{{item.school_name}}</view>
+                <view class="ind-award-conent-i-tel">{{item.clinch_title}}</view>
+                <view class="ind-award-conent-i-titme">{{item.create_time}}</view>
+                <view class="ind-award-conent-i-state row">
+                    {{item.clinch_money}}
                 </view>
-                <view class="ind-award-conent-i-b flexrow"wx:if="{{item.complaint}}">
-                    <text class="row">投诉理由</text>{{item.complaint}}
-                </view>
+            </view>
         </view>
     </view>
     <view class="tabBar-bottom">

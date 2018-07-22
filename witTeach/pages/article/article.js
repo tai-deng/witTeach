@@ -50,6 +50,11 @@ Page({
       }
     }, function (res) {
       that.setData({ ...res ,isArticle:true,id})
+      if(res.school.length<1){
+        that.setData({isMore:true})
+      }else{
+        that.setData({isMore:false})
+      }
     })
   },
   getArticle(id,type) {
@@ -63,7 +68,7 @@ Page({
     }, function (res) {
       var article = res.curriculum.details;
       WxParse.wxParse('article', 'html', article, that, 5);
-      that.setData({ ...res ,isArticle:false})
+      that.setData({ ...res ,isArticle:false,id})
     })
   },
   /** 
@@ -115,15 +120,15 @@ Page({
     var user_id = bs.cache("user_id")
     var id = this.data.id;
     console.log("----------------------------")
-    /* if (res.from === 'button') {
+    if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
-    } */
+    }
     return {
       imageUrl:"../imgs/a.jpg",
       title: '机器人培训班',
       // path: `pages/terrace/terrace?user_id=${user_id}&id=${id}`
-      path: `pages/shareIn/shareIn?user_id=${user_id}&id=${id}&target=article`
+      path: `pages/shareIn/shareIn?id=${id}&user_id=${user_id}&target=article`
     }
   }
 })
