@@ -104,7 +104,7 @@ textarea {
 }
 .toast-cont{
     width: 100vw;
-    height: 750rpx;
+    height: 500rpx;
     position: absolute;
     left: 0;
     bottom: 0;

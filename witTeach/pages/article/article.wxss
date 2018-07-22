@@ -15,12 +15,14 @@
     color: #999;
     margin-bottom: 20rpx;
 }
+.art-pic video,
 .art-pic image{
     width: 690rpx;
     height: 350rpx;
     display: block;
     margin-left: 30rpx;
 }
+
 .art-describe{
     padding: 30rpx;
     text-indent: 2em;

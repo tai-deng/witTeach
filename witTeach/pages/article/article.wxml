@@ -14,7 +14,8 @@
             </view>
         </view>
         <view class="art-pic">
-            <image src="{{article.mv}}"></image>
+            <image src="{{article.mv}}" wx:if="{{article.type==2}}"></image>
+            <video src="{{article.mv}}" wx:if="{{article.type==1}}"></video>
         </view>
         <view class="art-describe">
             {{article.content}}

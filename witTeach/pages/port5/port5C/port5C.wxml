@@ -22,7 +22,7 @@
             </view>
             <view class="ind-award-conent-i flexrow"wx:for="{{item.student}}"wx:key="*this"wx:for-item="it"wx:for-index="ind">
                     <view class="ind-award-conent-i-title row">{{it.name}}</view>
-                    <view class="ind-award-conent-i-title row"bindtap="bindCall"data-call="{{ite.tel}}">{{it.tel}}</view>
+                    <view class="ind-award-conent-i-title row"bindtap="bindCall"data-phone="{{it.tel}}">{{it.tel}}</view>
                     <view class="ind-award-conent-i-title row">{{it.parent}}</view>
                     <view class="ind-award-conent-i-title row">{{it.section}}</view>
             </view>

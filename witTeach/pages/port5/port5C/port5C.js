@@ -75,6 +75,7 @@ Page({
     })
   },
   bindCall(e) {
+    // let phone = e.currentTarget.dataset.call;
     bs.call(e);
   },
   onReady: function () {

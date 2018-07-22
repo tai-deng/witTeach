@@ -35,6 +35,8 @@ Page({
     let text = e.detail.value.textarea;
     var sub = this.data.sub;
     var that = this;
+    let tel = bs.cache("user_phone");
+    console.log("isOn",this.data.isOn,that.data.isOn.join())
     if (sub && that.data.upUrl) {
       let that = this;
       request.request({
@@ -43,8 +45,8 @@ Page({
           content: that.data.leave,
           url: that.data.upUrl,
           type: that.data.upload,
-          is_on: that.data.isOn.join(),
-          name_id:that.data.nameId.join(),
+          tel,
+          is_on: that.data.isOn,
         }
       }, function (res) {
         console.log(res)
@@ -193,12 +195,13 @@ Page({
     // 谁可以看
   limits(e) {
     let limits = this.data.limits;
-    console.log("limits",limits)
-    this.setData({
-      list:limits,
-      flag: true,
-      state:true,
-    })
+    if(limits){
+      this.setData({
+        list:limits,
+        flag: true,
+        state:true,
+      })
+    }
   },
     // 提醒谁看
   reminds(e) {
@@ -223,39 +226,55 @@ Page({
     let arr = [];
     let isOn = this.data.isOn;
     let nameId = this.data.nameId;
-
-    if (state) {
-      if (status) {
-        isOn.push(list[index])
-      } else {
-        if (isOn.length > 0) {
-          for (let i = 0; i < isOn.length; i++){
-            if (list[index].id != isOn[i].id) {
-              arr.push(isOn[i]);
-            }
+    let limits = this.data.limits;
+    console.log(isOn,status)
+    if(status){
+      limits[index]["checked"] = true;
+      isOn.push(limits[index]["id"]);
+    }else{
+      limits[index]["checked"] = false;
+      // if (isOn) {
+        for (let i = 0; i < isOn.length; i++){
+          if (limits[index]["id"] != isOn[i]) {
+            arr.push(isOn[i]);
           }
-          isOn = arr;
         }
-        isOn = [];
-      }
-      this.setData({ isOn })
-      
-    } else {
-      if (status) {
-        nameId.push(list[index])
-      } else {
-        if (nameId.length > 0) {
-          for (let i = 0; i < nameId.length; i++){
-            if (list[index].id != nameId[i].id) {
-              arr.push(nameId[i]);
-            }
-          }
-          nameId = arr;
-        }
-        nameId = [];
-      }
-      this.setData({nameId})
+      // }
+      isOn = arr;
     }
+    this.setData({isOn,limits})
+    // if (state) {
+    //   if (status) {
+    //     isOn.push(list[index])
+    //   } else {
+    //     if (isOn.length > 0) {
+    //       for (let i = 0; i < isOn.length; i++){
+    //         if (list[index].id != isOn[i].id) {
+    //           arr.push(isOn[i]);
+    //         }
+    //       }
+    //       isOn = arr;
+    //     }
+    //     isOn = [];
+    //   }
+    //   this.setData({ isOn })
+      
+    // } else {
+    //   if (status) {
+    //     nameId.push(list[index])
+    //   } else {
+    //     if (nameId.length > 0) {
+    //       for (let i = 0; i < nameId.length; i++){
+    //         if (list[index].id != nameId[i].id) {
+    //           arr.push(nameId[i]);
+    //         }
+    //       }
+    //       nameId = arr;
+    //     }
+    //     nameId = [];
+    //   }
+    //   this.setData({nameId})
+    // }
   },
   // 确认选择
   bindFlagBB(e) {
@@ -266,11 +285,12 @@ Page({
   },
   getData() {
     let that = this;
+    let tel = bs.cache("user_phone");
     request.request({
       site: "PublishArticle",
-      data: {}
+      data: {tel}
     }, function (res) {
-      that.setData({ warn: res.name, limits:res.type})
+      that.setData({ limits:res})
     })
   },
   onReady: function () {

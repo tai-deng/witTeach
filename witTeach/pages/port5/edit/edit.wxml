@@ -34,7 +34,7 @@
                 <text>谁可以看</text>
             </view>
             <view class="limits-r flexrow">
-                <text>{{limit ? limit : '公开'}}</text>
+                <text>{{isOn[0] ? '个别可见':'全部可见'}}</text>
                 <image src="../../imgs/arrowR.png"></image>
             </view>
         </view>
@@ -62,7 +62,7 @@
             <view class="itemSw" wx:for="{{list}}">
                 <view class="controlb rows">
                     <view class="control-lb">{{item.name}}</view>
-                    <switch type="switch" data-id="{{item.id}}" data-index="{{index}}" bindchange="bindchange"></switch>
+                    <switch checked="{{item.checked}}" type="switch" data-id="{{item.id}}" data-index="{{index}}" bindchange="bindchange"></switch>
                 </view>
             </view>
           </scroll-view>
