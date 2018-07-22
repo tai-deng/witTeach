@@ -169,6 +169,7 @@ Page({
             reason: reason[index].name,
           }
         }, function (res) {
+          that.payment();
           that.setData({ data: res, flag: false })
         })
       } else {
@@ -348,6 +349,58 @@ Page({
         console.log("记录分享点击",ops)
       })
   },
+  // 支付
+payment(e){
+  let that = this;
+  let courseId = this.data.courseId;
+  let coursename = this.data.coursename;
+  let name = this.data.name;
+  let phone = this.data.phone;
+  let price = this.data.price;
+  let user_id = bs.cache("otherUerId");
+  wx.showNavigationBarLoading()
+  request.request({
+    site: "order_buy",
+    data: {
+      curriculum_id: courseId,
+      curriculum_title: coursename,
+      name:name,
+      tel: phone,
+      price: price,
+      user_id:user_id,
+    }
+  },function(res){
+      wx.hideNavigationBarLoading()
+      // if(res.status){
+        wx.showLoading({
+          title: '支付中',
+        })
+        var timeStamp = res.timeStamp.toString();
+        wx.requestPayment({
+          'timeStamp':timeStamp,
+          'nonceStr':res.nonceStr,
+          'package':res.package,
+          'signType':res.signType,
+          'paySign':res.paySign,
+          'success':function(res){
+            if (res.errMsg = "requestPayment:ok") {
+              wx.showToast({
+                title: '购买成功',
+                icon: 'success',
+                duration: 2000
+              });
+              that.setData({name:null,phone:null,org:null})
+              that.getData(that.data.id)
+            }
+          },
+          'complete':function(e){
+            wx.hideLoading();
+          }
+        })
+      // }
+    }
+  )
+},
   onReady: function () {
   
   },

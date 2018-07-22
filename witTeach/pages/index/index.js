@@ -127,7 +127,25 @@ Page({
     var orgtype_id = this.data.orgtype_id;
     if (/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,40}$/.test(name) && /^1[34578]\d{9}$/.test(phone)) {
       if (this.data.apply == 3) {
-        this.payment();
+        if (title && myreg.test(phone)) {
+          request.request({
+            site: "Complaint_post",
+            data: {
+              id: reason[index].id,
+              reason: reason[index].name,
+            }
+          }, function (res) {
+            that.payment();
+            that.setData({ data: res, flag: false })
+          })
+        } else {
+          if (!myreg.test(phone)) {
+            request.toast('请确认手机号码')
+          }
+          if (!title) {
+            request.toast('请确认姓名')
+          }
+        }
       }
       if(this.data.apply == 1){
         if (org) {
