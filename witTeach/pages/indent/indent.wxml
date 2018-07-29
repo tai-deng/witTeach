@@ -54,7 +54,8 @@
         <view class="ind-award-conent"wx:if="{{sel==2}}">
             <view class="ind-award-conent-i flexrow"wx:for="{{data.recommended.recommended}}"wx:key="*this">
                 <view class="ind-award-conent-i-title row">{{item.title}}</view>
-                <view class="ind-award-conent-i-name row">{{item.name}}</view>
+                <!-- <view class="ind-award-conent-i-name row">{{item.name}}</view> -->
+                <view class="ind-award-conent-i-tel">{{item.tel}}</view>
                 <view class="ind-award-conent-i-titme row">{{item.create_time}}</view>
                 <view class="ind-award-conent-i-state row">
                     <view class="ind-hx"wx:if="{{item.money}}">
@@ -78,7 +79,8 @@
         <view class="ind-award-conent"wx:if="{{sel==3}}">
             <view class="ind-award-conent-i flexrow"wx:for="{{data.consulting.consulting}}"wx:key="*this">
                 <view class="ind-award-conent-i-title row">{{item.title}}</view>
-                <view class="ind-award-conent-i-name row">{{item.name}}</view>
+                <!-- <view class="ind-award-conent-i-name row">{{item.name}}</view> -->
+                <view class="ind-award-conent-i-tel">{{item.tel}}</view>
                 <view class="ind-award-conent-i-titme row">{{item.create_time}}</view>
                 <view class="ind-award-conent-i-state row">
                     <view class="ind-hx"wx:if="{{item.money}}">

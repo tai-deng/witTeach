@@ -54,24 +54,24 @@
                 <view class="recommend-phone">
                     <view class="recommend-phone-t"wx:if="{{item.state == 0}}">已被推荐给{{item.recommend_number}}人</view>
                     <view class="recommend-phone-t"wx:else>{{item.tel}}</view>
-                    <!-- <view class="recommend-phone-b">(来源: {{item.source}})</view> -->
+                    <view class="recommend-phone-b">(来源: {{item.source}})</view>
                 </view>
             </view>
             <view class="recommend-poke">
                 <view class="recommend-date-war"wx:if="{{item.state == 0}}">
-                    <view class="recommend-date-bar row"bindtap="bindrecommend">
+                    <view class="recommend-date-bar row"bindtap="bindrecommend"data-id="{{item.id}}"data-money="{{item.recommend_see}}"data-type="1">
                         ￥{{item.recommend_see}}查看
-                    </view>
-                    <view class="recommend-complain-war"wx:if="{{item.complaint}}">
-                        <text class="recommend-complain row">投诉理由</text>
-                        <text class="recommend-complain-cnt">{{item.complaint}}</text>
                     </view>
                 </view>
                 <view class="recommend-time flexrow"wx:else>
                     <view class="recommend-time-l">已查看</view>
-                    <picker bindchange="bindcomplain" range="{{array}}">
+                    <picker bindchange="bindcomplain"wx:if="{{!item.complaint}}" range="{{array}}"data-id="{{item.id}}">
                         <view class="recommend-time-r row">投诉</view>
                     </picker>
+                </view>
+                <view class="recommend-complain-war"wx:if="{{item.complaint}}">
+                    <!-- <text class="recommend-complain row">投诉理由</text> -->
+                    <text class="recommend-complain-cnt">{{item.complaint}}</text>
                 </view>
             </view>
         </view>
@@ -87,23 +87,24 @@
                 <view class="recommend-phone">
                     <view class="recommend-phone-t"wx:if="{{item.state == 0}}">已被推荐给{{item.recommend_number}}人</view>
                     <view class="recommend-phone-t"wx:else>{{item.tel}}</view>
+                    <view class="recommend-phone-b">(来源: {{item.source}})</view>
                 </view>
             </view>
             <view class="recommend-poke">
                 <view class="recommend-date-war"wx:if="{{item.state == 0}}">
-                    <view class="recommend-date-bar row"bindtap="bindrecommend">
+                    <view class="recommend-date-bar row"bindtap="bindrecommend"data-id="{{item.id}}"data-money="{{item.recommend_see}}"data-type="2">
                         ￥{{item.recommend_see}}查看
-                    </view>
-                    <view class="recommend-complain-war"wx:if="{{item.complaint}}">
-                        <text class="recommend-complain row">投诉理由</text>
-                        <text class="recommend-complain-cnt">{{item.complaint}}</text>
                     </view>
                 </view>
                 <view class="recommend-time flexrow"wx:else>
                     <view class="recommend-time-l">已查看</view>
-                    <picker bindchange="bindcomplain" range="{{array}}">
+                    <picker bindchange="bindcomplain"wx:if="{{!item.complaint}}" range="{{array}}"data-id="{{item.id}}">
                         <view class="recommend-time-r row">投诉</view>
                     </picker>
+                </view>
+                <view class="recommend-complain-war"wx:if="{{item.complaint}}">
+                    <!-- <text class="recommend-complain row">投诉理由</text> -->
+                    <text class="recommend-complain-cnt">{{item.complaint}}</text>
                 </view>
             </view>
         </view>

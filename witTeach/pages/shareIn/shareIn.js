@@ -10,20 +10,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({ title: "加载中..." });
-    this.getInfo(options);
+    this.setData({options:options});
   },
-  getInfo(ops) {
+  getInfo() {
+    let ops = this.data.options;
     let url = '';
+    let arg = '';
+    let target = ops.target;
+    let tip = bs.cache("tip");
+    let latitude = bs.cache("latitude");
+    let longitude = bs.cache("longitude");
     // 1.机构 2.文章
     if(ops["user_id"]){
       bs.cache("otherUerId", ops["user_id"]);
+      arg = `id=${ops.id}&user_id=${ops.user_id}`;
       this.shareOrigin(ops);
+      console.log(latitude,"------",longitude)
+    }else{
+      arg = `id=${ops.id}`;
     }
-    let target = ops.target;
-    let arg = `id=${ops.id}&user_id=${ops.user_id}`;
-    let tip = bs.cache("tip");
-
+    
     if (target == "institution") {
       if (tip) {
         url = "../terrace/terrace?" + arg;
@@ -37,13 +43,12 @@ Page({
       }
       url = "../article/article?" + arg;
     }
-console.log(ops)
+    console.log(ops)
     console.log("url",url)
 
     try {
       wx.redirectTo({
         url, success() {
-        wx.hideLoading();
         }
       })
     } catch (error) {
@@ -52,14 +57,48 @@ console.log(ops)
 
   },
   // 分享分配
-  shareOrigin(ops) {
+  shareOrigin() {
+    let ops = {user_id:34};
     request.request({
       site: "click_share",
       data: {
         user_id: ops.user_id,
       }
     }, function (res) {
-      console.log("记录分享点击",res)
+      console.log("记录分享点击",ops)
+    })
+  },
+  bindgetuserinfo(e) {
+    var that = this;
+    var userInfo = e.detail.userInfo;
+    var encryptedData = e.detail.encryptedData;
+    var iv = e.detail.iv;
+    console.log(e)
+    wx.showLoading({ title: "加载中..." });
+    wx.login({
+      success(res){
+        wx.request({
+          url: "https://hj.wocon.cn/sign_in",
+          data: {
+            iv: iv,
+            encrypted_data: encryptedData,
+            cid: "547a339ff29f2d584dga25471ffac9bf1ad",
+            js_code:res.code,
+          },
+          method:"POST",
+          header: {
+              'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+            bs.cache('user_info', userInfo);
+            bs.cache('mstr', res.data.data.mstr);
+            that.getInfo();
+
+          },fail(res){
+          }
+        })
+      }
     })
   },
   onReady: function () {

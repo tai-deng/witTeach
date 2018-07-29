@@ -96,10 +96,14 @@
 }
 .ind-award-conent-i-titme{
     color: #999;
+    font-size: 24rpx;
 }
 .ind-award-conent-i-stateb{
     font-size: 28rpx;
     color: #117ae5;
+}
+.ind-award-conent-i-tel{
+    margin-right: 20rpx;
 }
 .ind-bottom-bar{
     width: 100vw;

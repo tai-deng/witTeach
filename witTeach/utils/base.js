@@ -26,6 +26,7 @@ const openLocation = (loc) => {
     scale: 28
   })
 }
+// 28.2217500000,112.9356100000
 // 打电话
 const call = (call) => {
   wx.makePhoneCall({phoneNumber: call.currentTarget.dataset.phone})
@@ -54,6 +55,12 @@ const cache = function(name,value) {
   }
 }
 
+
+// 保留两位小数
+const toFx = (num)=>{
+  return num.toFixed(2)
+}
+
 module.exports = {
-  setTitle,systemInfo,openLocation,call,cache,
+  setTitle,systemInfo,openLocation,call,cache,toFx
 }

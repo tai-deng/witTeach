@@ -97,23 +97,46 @@ payment(money){
   },
   bindrecommend(e) {
     // 查看
-    wx.showToast({
-      title: '没钱',
-      icon: 'none',
-      duration: 2000
+    let that = this;
+    let type = e.currentTarget.dataset.type;
+    let tel = bs.cache("user_phone");
+    let id = e.currentTarget.dataset.id;
+    let money = e.currentTarget.dataset.money;
+    console.log(type,e)
+    request.request({
+      site: "SeeMoney",
+      data: {
+        id: id,
+        money: money,
+        tel:tel,
+        type:type,
+      }
+    }, function (res) {
+      console.log("···查看->支付···",res);
+      that.getData();
     })
   },
   // 投诉原因
   bindcomplain(e) {
     var reason = this.data.reason;
-    var index = Number(e.detail.value);var that = this;
+    var index = Number(e.detail.value);
+    let id = e.currentTarget.dataset.id;
+    let that = this;
+    console.log(reason)
     request.request({
       site: "Complaint_post",
       data: {
-        id: reason[index].id,
+        id: id,
         reason: reason[index].name,
       }
     }, function (res) { 
+      wx.showToast({
+        title:"投诉成功！",
+        icon:"none",
+        success(){
+          that.getData();
+        }
+      })
     })
   },
   // 投诉原因列表

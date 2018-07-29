@@ -38,19 +38,58 @@ Page({
       this.setData({ isLogin: true, options })
     }
   },
+  // 判断授权
+  isAuthorize(){
+    let that = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          that.getLoc();
+        }else{
+          that.getInfo();
+        }
+      }
+  })
+  },
+  // 位置
+  getLoc(){
+    let that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        bs.cache("latitude",latitude);
+        bs.cache("longitude",longitude);
+        that.getInfo();
+      }
+    })
+  },
   // 获取默认数据
   getData(id) {
     bs.setTitle("机构详情");
+    let school_id = bs.cache("school_id");
     var that = this;
-    request.request({
-      site: "School",
-      data: {
-        school_id:id,
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        bs.cache("latitude",latitude);
+        bs.cache("longitude",longitude);
+        request.request({
+          site: "School",
+          data: {
+            school_id:school_id,
+            latitude,
+            longitude,
+          }
+        }, function (res) {
+          that.setData({ basic: res, id: res.id });
+          bs.cache("schoolId",id);
+          that.getTab(1, res.id);
+        })
       }
-    }, function (res) {
-      that.setData({ basic: res, id: res.id });
-      bs.cache("schoolId",id);
-      that.getTab(1, res.id);
     })
   },
   // 获取 tab 数据

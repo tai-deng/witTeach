@@ -6,7 +6,7 @@ Page({
   data: {
     getcnt: "获取验证码",
     ti: 60,
-    phone: 15873095325,
+    // phone: 15873095325,
     auth: false,
     is_phone:false,
   },
@@ -143,6 +143,7 @@ Page({
           tel: phone,
         }
       }, function (res) {
+        console.log("获取验证码成功！",res)
         that.setData({
           phone: res.tel,
           time: res.time,
@@ -154,16 +155,16 @@ Page({
           var ti = that.data.ti;
           ti--;
           if (ti < 10) {
-            getcnt = `等待${ti} 秒`;
+            getcnt = `等待${ti}秒`;
           } else {
-            getcnt = `等待 ${ti} 秒`;
+            getcnt = `等待${ti}秒`;
           }
           that.setData({ti,getcnt,auth:false,tirm})
           if (ti == 0) {
             getcnt = "获取验证码";
             clearInterval(tirm);
             that.setData({auth:true,getcnt,ti:60})
-          } 
+          }
         },1000)
       })
     } else {
@@ -223,7 +224,7 @@ Page({
   onLoad: function (options) {
     let tip = bs.cache("tip");
     if(tip){
-      // this.onRoute(tip);
+      this.onRoute(tip);
     }
     if (options.id) {
       wx.showToast({

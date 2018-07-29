@@ -36,18 +36,43 @@ Page({
       withShareTicket: true
     })
   },
-  // 获取数据
+  // // 获取数据
+  // getData(id) {
+  //   var that = this;
+  //   request.request({
+  //     site: "School",
+  //     data: {
+  //       school_id:id
+  //     }
+  //   }, function (res) { 
+  //     that.setData({data:res,id})
+  //     that.getTab(1,id);
+  //   })
+  // },
+  // 获取默认数据
   getData(id) {
+    bs.setTitle("机构详情");
+    let school_id = bs.cache("school_id");
     var that = this;
-    // let school_id = this.data.
-    request.request({
-      site: "School",
-      data: {
-        school_id:id
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        bs.cache("latitude",latitude);
+        bs.cache("longitude",longitude);
+        request.request({
+          site: "School",
+          data: {
+            school_id:school_id,
+            latitude,
+            longitude,
+          }
+        }, function (res) {
+          that.setData({data:res,id})
+          that.getTab(1,id);
+        })
       }
-    }, function (res) { 
-      that.setData({data:res,id})
-      that.getTab(1,id);
     })
   },
   // 机构入驻
@@ -120,14 +145,15 @@ Page({
   },
   // 钱
   bindmoney(e) {
-    let user_phone = bs.cache("user_phone");
-    if (user_phone != void 0 && user_phone.length == 11) {
-      wx.navigateTo({
-        url:"/pages/indent/indent"
-      })
-    } else {
-      this.bindshunt();
-    }
+    // let user_phone = bs.cache("user_phone");
+    // if (user_phone != void 0 && user_phone.length == 11) {
+    //   wx.navigateTo({
+    //     url:"/pages/indent/indent"
+    //   })
+    // } else {
+    //   this.bindshunt();
+    // }
+    this.bindshunt();
   },
     // 录入机构名称
   bindtitle(e){

@@ -1,6 +1,9 @@
 <!--pages/shareIn/shareIn.wxml-->
-<view class="share-container">
+<button class="share-container" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo"hover-class="null">
     <view class="title row">
         <image src="../imgs/lobob.png"/>
     </view>
-</view>
+    <view class="gitInto row">
+        点击进入系统
+    </view>
+</button>

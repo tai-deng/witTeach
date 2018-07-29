@@ -6,12 +6,13 @@ Page({
   
   },
   onLoad: function (options) {
-    this.getData(options.id);
     bs.setTitle(bs.cache("title"))
+    this.setData({id:options.id})
   },
-  getData(id) { 
+  getData() { 
     var that = this;
     let phone = bs.cache("user_phone");
+    let id = this.data.id;
     request.request({
       site: "Extension",
       data: {
@@ -134,7 +135,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getData();
   },
 
   /**

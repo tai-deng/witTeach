@@ -164,7 +164,7 @@
 .recommend-complain-cnt{
     margin-left: 10rpx;
     font-size: 20rpx;
-    color: #666;
+    color: #2984ff;
 }
 .recommend-time-l{
     font-size: 30rpx;

@@ -40,15 +40,18 @@ Page({
       this.getData(options.id)
     }
   },
+
   // 获取数据
   getData(id) {
     var that = this;
+    console.log("分享经来~~~~1",id)
     request.request({
       site: "article_cats",
       data: {
         id: id,
       }
     }, function (res) {
+      console.log("分享经来~~~~2",res)
       that.setData({ ...res ,isArticle:true,id})
       if(res.school.length<1){
         that.setData({isMore:true})
@@ -57,6 +60,7 @@ Page({
       }
     })
   },
+  
   getArticle(id,type) {
     var that = this;
     request.request({
@@ -66,6 +70,7 @@ Page({
         type
       }
     }, function (res) {
+      console.log("非分享进入",res)
       var article = res.curriculum.details;
       WxParse.wxParse('article', 'html', article, that, 5);
       that.setData({ ...res ,isArticle:false,id})

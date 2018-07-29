@@ -119,7 +119,7 @@
                 <text>被有效查看，将获得收益5.00</text>
             </view>
         </view>
-        <view class="in-money"bindtap="bindmoney"wx:if="{{money>0}}">
+        <view class="in-money"bindtap="bindmoney">
             <image src="../imgs/money.png"></image>
         </view>
         <view class="in-toast row"wx:if="{{flag}}">
