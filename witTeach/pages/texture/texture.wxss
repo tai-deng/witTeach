@@ -1,4 +1,4 @@
-/* pages/texture/texture.wxss */
+/* pages/texture/texture.wxss-t */
 .container{
     padding-bottom: 98rpx;
 }
