@@ -12,10 +12,11 @@ Page({
   // 获取数据
   getData(id) {
     var that = this;
+    let school_id = bs.cache("school_id");
     request.request({
       site: "Extension_query",
       data: {
-        school_id: id,
+        school_id,
       }
     }, function (res) { 
       that.setData({ data: res, id });
@@ -179,7 +180,7 @@ payment(money){
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
   
-  }
+  // }
 })

@@ -26,5 +26,5 @@
             <!-- 本次可提现100，今日上线是500.00元 -->
         </view>
     </view>
-    <view class="submit row {{sub?'sbb':'sba'}}"bindtap="bindsumbit">确定提现</view>
+    <view class="submit row"bindtap="bindsumbit">确定提现</view>
 </view>

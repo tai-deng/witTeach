@@ -1,24 +1,25 @@
 <!--pages/manage/manage.wxml-->
+<form bindsubmit="formSubmit">
 <view class="container">
     <view class="title row">
         <image src="../imgs/lobob.png"/>
     </view>
     <view class="phone {{sel == 1?'warpa':'warpb'}}">
-        <input type="number"bindfocus="bindfocusA"bindblur="bindblur"placeholder="请输入手机号码"bindinput="bindinputA"value="{{phone}}"/>
+        <input name="phone" type="number"bindfocus="bindfocusA"bindblur="bindblur"placeholder="请输入手机号码"bindinput="bindinputA"value="{{phone}}"/>
         <view class="phone-r row"bindtap="bindbad">
             <image src="../imgs/bad.png"></image>
         </view>
     </view>
     <view class="phone {{sel == 2?'warpa':'warpb'}}">
-        <input type="number"bindfocus="bindfocusB"bindblur="bindblur"placeholder="请输入验证码"bindinput="bindinputB"value="{{authCode}}"/>
+        <input name="code" type="number"bindfocus="bindfocusB"bindblur="bindblur"placeholder="请输入验证码"bindinput="bindinputB"value="{{authCode}}"/>
         <button class="phone-r-b row {{auth?'autha':'authb'}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">
             {{getcnt}}
         </button>
     </view>
-    <view class="enter row" bindtap="bindauth">
+    <button  formType="submit" class="enter row">
         登　录
-    </view>
+    </button>
     <button class="contact row" hover-class="none"open-type="contact">
         <image src="../imgs/dh.png"></image>联系客服
     </button>
-</view>
+</view></form>

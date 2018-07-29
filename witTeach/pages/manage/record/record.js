@@ -20,13 +20,14 @@ Page({
   getData(id,page=1,pagesize=20) {
     var that = this;
     var upLoad = this.data.upLoad;
+    let pid = bs.cache("pid")
     if (upLoad) {
       bs.setTitle("提现记录");
       request.request(
         {
           site: "Withdrawal_list",
           data: {
-            pid: id,
+            pid: pid,
             page: page,
             pagesize: pagesize,
           }

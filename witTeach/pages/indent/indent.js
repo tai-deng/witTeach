@@ -36,22 +36,29 @@ Page({
   bindnotSee(e) {
     // 未查看
     let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url:`./notSee/notSee?id=${id}`
-    })
+    let num = e.currentTarget.dataset.num;
+    if(num<0){
+      wx.navigateTo({
+        url:`./notSee/notSee?id=${id}`
+      })
+    }
   },
   bindwithdraw(e){
     // this.setData({flag:true})
-    wx.showModal({
-      title: '对不起提现失败！',
-      content: '应为红包金额有限，请联系客服咨询详情。',
-      showCancel:false,
-      success: function(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
-      }
-    })
+    let money = this.data.data.money;
+      wx.navigateTo({
+        url:'../getMoney/getMoney'
+      })
+    // wx.showModal({
+    //   title: '对不起提现失败！',
+    //   content: '应为红包金额有限，请联系客服咨询详情。',
+    //   showCancel:false,
+    //   success: function(res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //     }
+    //   }
+    // })
   },
   bindaward(e){
     var index = e.currentTarget.dataset.index;

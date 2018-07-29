@@ -25,7 +25,15 @@ Page({
     isLogin:false,
   },
   onLoad: function (options) {
-    this.getData(options.id);
+    let schoolId = bs.cache("schoolId");
+    let id = '';
+    if(options.id){
+      id = options.id;
+    }else if(schoolId){
+      id = schoolId;
+    }
+    this.getData(id);
+
     if (options["user_id"]) {
       this.setData({ isLogin: true, options })
     }

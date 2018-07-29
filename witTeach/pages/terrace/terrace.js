@@ -39,6 +39,7 @@ Page({
   // 获取数据
   getData(id) {
     var that = this;
+    // let school_id = this.data.
     request.request({
       site: "School",
       data: {

@@ -21,7 +21,7 @@ Page({
     month:"本月",
   },
   onLoad: function (options) {
-    this.getData(options.id);
+    this.getData();
     bs.setTitle(bs.cache("title"));
   },
   // 获取数据
@@ -30,15 +30,16 @@ Page({
     id = id ? id : this.data.id;
     bs.setTitle("省市区代理")
     let tel = bs.cache("user_phone");
+    let school_id = bs.cache("school_id");
     request.request({
       site: "ProvinceProfit",
       data: {
-        school_id: id,
+        school_id,
         tel: tel,
         day: day,
       }
     }, function (res) {
-      that.setData({data:res,id})
+      that.setData({data:res,id:school_id})
     })
   },
   binddrawings(e) {
@@ -123,7 +124,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
   
-  }
+  // }
 })

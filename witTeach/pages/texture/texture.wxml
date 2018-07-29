@@ -142,7 +142,7 @@
     <view class="tostMoney row" wx:if="{{flag}}">
         <form bindsubmit="bindfinish" report-submit="true">
             <view class="tostCont columns">
-                <input type="number"placeholder="输入充值金额"placeholder-style="color:#999;font-size:28rpx;"name="money"/>
+                <input type="digit"placeholder="输入充值金额"placeholder-style="color:#999;font-size:28rpx;"name="money"/>
                 <view class="btnBar flexrow">
                     <view class="finish row" bindtap="bindcancel">取消</view>
                     <button formType ="submit">确认</button>

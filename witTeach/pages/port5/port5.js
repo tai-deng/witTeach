@@ -80,15 +80,16 @@ Page({
   getData(id,day = "") {
     var that = this;
     var tel = bs.cache("user_phone");
+    let school_id = bs.cache("school_id");
     request.request({
       site: "SalesmanIncome",
       data: {
-        school_id:id,
+        school_id,
         tel: tel,
         day: day,
       }
     }, function (res) {
-      that.setData({data:res,id})
+      that.setData({data:res,id:school_id})
     })
   },
   onLoad: function (options) {
@@ -141,7 +142,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
   
-  }
+  // }
 })

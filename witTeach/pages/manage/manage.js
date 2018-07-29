@@ -29,12 +29,13 @@ Page({
   getData(id,page=1,pagesize=20,day='') {
     var that = this;
     var upLoad = this.data.upLoad;
+    let school_id = bs.cache("school_id");
     if (upLoad) {
       request.request(
         {
           site: "Ranking",
           data: {
-            school_id: id,
+            school_id,
             page: page,
             pagesize: pagesize,
             day:day
@@ -46,7 +47,7 @@ Page({
             upLoad: false;
           }
           that.setData({
-            id: id,
+            id: school_id,
             data: res,
             upLoad,page
           })

@@ -16,7 +16,6 @@ Page({
   // 登录
   bindauth(e) {
     var is_phone = this.data.is_phone;
-    var url = "";
     var that = this;
 
     var phone = this.data.phone;
@@ -34,43 +33,14 @@ Page({
             time: time,
           }
         }, function (res) {
+          console.log(res)
           bs.cache('user_phone', phone);
           bs.cache('pid', res.id);
           bs.cache('title', res.name);
           bs.cache("user_id", res.user_id);
           bs.cache("tip", res.type);
-          if (res.type == 2) {
-            // 学校总代端 2端
-            url = `../manage/manage?id=${res.school_id}`;
-          }
-          if (res.type == 1) {
-            // 推广设置 1端
-            url = `../texture/texture?id=${res.school_id}`;
-          }
-          if (res.type == 5 || res.type == 7 || res.type == 8) {
-            // 省市区代理 4端
-            url = `../port3/port3B/port3B?id=${res.school_id}`;
-          }
-          if (res.type == 3) {
-            // 老师学生收益 3端
-            url = `../port4/port4?id=${res.school_id}`;
-          }
-          if (res.type == 4) {
-            // 学校老师端 4端
-            url = `../port5/port5?id=${res.school_id}`;
-          }
-          if (res.type == 6) {
-            // 分享游客端
-            // url = `pages/manage/teacher/teacher?id=${res.school_id}`;
-            url = `pages/index/index?id=${res.school_id}&show=0`;
-          }
-          if (res.type == 9) {
-            // 家长端
-            url = `../indent/indent?id=${res.school_id}`;
-          }
-          wx.reLaunch({
-            url: url
-          })
+          bs.cache("school_id", res.school_id);
+          that.onRoute(res.type);
         })
       } else {
         if (!authCode) {
@@ -213,11 +183,104 @@ Page({
       }
     }
   },
+  // Route
+  onRoute(dir){
+    let url = "";
+    let school_id = bs.cache("school_id");
+    if (dir == 2) {
+      // 学校总代端 2端
+      url = `../manage/manage?id=${school_id}`;
+    }
+    if (dir == 1) {
+      // 推广设置 1端
+      url = `../texture/texture?id=${school_id}`;
+    }
+    if (dir == 5 || dir == 7 || dir == 8) {
+      // 省市区代理 4端
+      url = `../port3/port3B/port3B?id=${school_id}`;
+    }
+    if (dir == 3) {
+      // 老师学生收益 3端
+      url = `../port4/port4?id=${school_id}`;
+    }
+    if (dir == 4) {
+      // 学校老师端 4端
+      url = `../port5/port5?id=${school_id}`;
+    }
+    if (dir == 6) {
+      // 分享游客端
+      // url = `pages/manage/teacher/teacher?id=${school_id}`;
+      url = `pages/index/index?id=${school_id}&show=0`;
+    }
+    if (dir == 9) {
+      // 家长端
+      url = `../indent/indent?id=${school_id}`;
+    }
+    wx.reLaunch({
+      url: url
+    })
+  },
   onLoad: function (options) {
+    let tip = bs.cache("tip");
+    if(tip){
+      // this.onRoute(tip);
+    }
     if (options.id) {
       wx.showToast({
         title: '分享用户',
         icon: 'success',
+        duration: 2000
+      })
+    }
+  },
+  // submit
+  formSubmit(event){
+    let phone = event.detail.value.phone;
+    let code = event.detail.value.code;
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    var that = this;
+    var mid = this.data.mid;
+    var time = this.data.time;
+
+    if (mid && time) {
+      if (myreg.test(phone) && code) {
+        request.request({
+          site: "verifyNote",
+          data: {
+            tel: phone,
+            verify_code: code,
+            mid: mid,
+            time: time,
+          }
+        }, function (res) {
+          bs.cache('user_phone', phone);
+          bs.cache('pid', res.id);
+          bs.cache('title', res.name);
+          bs.cache("user_id", res.user_id);
+          bs.cache("tip", res.type);
+          bs.cache("school_id", res.school_id);
+          that.onRoute(res.type);
+        })
+      } else {
+        if (!code) {
+          wx.showToast({
+            title: '请输入验证码',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        if (!myreg.test(phone)) {
+          wx.showToast({
+            title: '请输入正确的手机号码',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    } else {
+      wx.showToast({
+        title: '请获取验证码',
+        icon: 'none',
         duration: 2000
       })
     }
