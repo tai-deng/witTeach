@@ -33,7 +33,6 @@ Page({
             time: time,
           }
         }, function (res) {
-          console.log(res)
           bs.cache('user_phone', phone);
           bs.cache('pid', res.id);
           bs.cache('title', res.name);
