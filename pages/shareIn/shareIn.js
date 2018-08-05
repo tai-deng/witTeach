@@ -57,8 +57,7 @@ Page({
 
   },
   // 分享分配
-  shareOrigin() {
-    let ops = {user_id:34};
+  shareOrigin(ops) {
     request.request({
       site: "click_share",
       data: {
@@ -73,6 +72,7 @@ Page({
     var userInfo = e.detail.userInfo;
     var encryptedData = e.detail.encryptedData;
     var iv = e.detail.iv;
+    let user_id = this.data.options['user_id']
     console.log(e)
     wx.showLoading({ title: "加载中..." });
     wx.login({
@@ -84,6 +84,7 @@ Page({
             encrypted_data: encryptedData,
             cid: "547a339ff29f2d584dga25471ffac9bf1ad",
             js_code:res.code,
+            user_id,
           },
           method:"POST",
           header: {
@@ -93,9 +94,9 @@ Page({
             console.log(res)
             bs.cache('user_info', userInfo);
             bs.cache('mstr', res.data.data.mstr);
-            that.getInfo();
-
-          },fail(res){
+            // that.getInfo();
+          },complete(res){
+            wx.hideLoading();
           }
         })
       }
