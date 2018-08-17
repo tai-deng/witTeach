@@ -94,7 +94,7 @@ Page({
             console.log(res)
             bs.cache('user_info', userInfo);
             bs.cache('mstr', res.data.data.mstr);
-            // that.getInfo();
+            that.getInfo();
           },complete(res){
             wx.hideLoading();
           }

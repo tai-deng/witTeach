@@ -27,11 +27,15 @@ const request = (obj, callback) => {
                             callback(res.data.data);
                         }
                     } else {
-                        wx.showToast({
-                            title: res.data.info,
-                            icon: 'loading',
-                            duration: 2000
-                        })
+                        if(res.data.info){
+                            wx.showToast({
+                                title: res.data.info,
+                                icon: 'loading',
+                                duration: 2000
+                            })
+                        }else{
+                            console.log('errey->',res.data)
+                        }
                     }
                 }, complete() {
                     wx.hideNavigationBarLoading();
@@ -72,11 +76,15 @@ const request = (obj, callback) => {
                                                     callback(res.data.data);
                                                 }
                                             } else {
-                                                wx.showToast({
-                                                    title: res.data.info,
-                                                    icon: 'loading',
-                                                    duration: 2000
-                                                })
+                                                if(res.data.info){
+                                                    wx.showToast({
+                                                        title: res.data.info,
+                                                        icon: 'loading',
+                                                        duration: 2000
+                                                    })
+                                                }else{
+                                                    console.log('errey->',res.data)
+                                                }
                                             }
                                         }, complete() {
                                             wx.hideNavigationBarLoading();

@@ -34,7 +34,7 @@ Page({
     }
     this.getData(id);
 
-    if (options["user_id"]) {
+    if (options.user_id) {
       this.setData({ isLogin: true, options })
     }
   },
