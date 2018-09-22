@@ -38,41 +38,16 @@ Page({
       this.setData({ isLogin: true, options })
     }
   },
-  // 判断授权
-  isAuthorize(){
-    let that = this;
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userLocation']) {
-          that.getLoc();
-        }else{
-          that.getInfo();
-        }
-      }
-  })
-  },
-  // 位置
-  getLoc(){
-    let that = this;
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-        var latitude = res.latitude;
-        var longitude = res.longitude;
-        bs.cache("latitude",latitude);
-        bs.cache("longitude",longitude);
-        that.getInfo();
-      }
-    })
-  },
   // 获取默认数据
   getData(id) {
     bs.setTitle("机构详情");
-    let school_id = bs.cache("school_id");
+    let school_id = id;
+    bs.cache("schoolId",school_id);
     var that = this;
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
+        console.log('loc',res,'id',id)
         var latitude = res.latitude;
         var longitude = res.longitude;
         bs.cache("latitude",latitude);
@@ -85,10 +60,8 @@ Page({
             longitude,
           }
         }, function (res) {
-          console.log('22222222222222',res.data.latitude)
-          that.setData({ basic: res, id: res.id });
-          bs.cache("schoolId",id);
-          that.getTab(1, res.id);
+          that.setData({data:res,school_id})
+          that.getTab(1,school_id);
         })
       }
     })
@@ -248,7 +221,7 @@ Page({
       }
     },function(res){
         wx.hideNavigationBarLoading()
-        // if(res.status){
+        let type = res.type;
           wx.showLoading({
             title: '支付中',
           })
@@ -267,7 +240,8 @@ Page({
                   duration: 2000
                 });
                 that.setData({name:null,phone:null,org:null,toast:2})
-                that.getData(that.data.id)
+                that.getData(that.data.school_id)
+                bs.cache("tip", type);
               }
             },
             'complete':function(e){

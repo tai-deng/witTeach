@@ -14,54 +14,60 @@ Page({
   },
   getInfo() {
     let ops = this.data.options;
-    let url = '';
     let arg = '';
     let target = ops.target;
-    let tip = bs.cache("tip");
-    let latitude = bs.cache("latitude");
-    let longitude = bs.cache("longitude");
     // 1.机构 2.文章
     if(ops["user_id"]){
       bs.cache("otherUerId", ops["user_id"]);
       arg = `id=${ops.id}&user_id=${ops.user_id}`;
       this.shareOrigin(ops);
-      console.log(latitude,"------",longitude)
     }else{
       arg = `id=${ops.id}`;
     }
     
-    if (target == "institution") {
-      if (tip) {
-        url = "../terrace/terrace?" + arg;
-      } else {
-        url = '../index/index?' + arg;
-      }
-    }
-
-    if (target == "article") {
-      if(tip){
-      }
-      url = "../article/article?" + arg;
-    }
-    console.log(ops)
-    console.log("url",url)
-
-    try {
-      wx.redirectTo({
-        url, success() {
-        }
-      })
-    } catch (error) {
-      wx.showToast({title:error})
-    }
-
+    this.getUserShow(target,arg,ops);
   },
+  getUserShow(target,arg,ops){
+    let url='';
+    request.request({
+      site: "usertype",
+      data: {}
+    }, function (res) {
+      bs.cache("tip",res.type);
+      if (target == "institution") {
+        if (res.type) {
+          url = "../terrace/terrace?" + arg;
+        } else {
+          url = '../index/index?' + arg;
+        }
+      }
+
+      if (target == "article") {
+        if(res.type){
+        }
+        url = "../article/article?" + arg;
+      }
+      console.log(ops)
+      console.log("url",url)
+
+      try {
+        wx.redirectTo({
+          url, success() {
+          }
+        })
+      } catch (error) {
+        wx.showToast({title:error})
+      }
+    })
+  },
+
   // 分享分配
   shareOrigin(ops) {
     request.request({
       site: "click_share",
       data: {
         user_id: ops.user_id,
+        article_id:ops.id,
       }
     }, function (res) {
       console.log("记录分享点击",ops)
@@ -144,7 +150,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
   
-  }
+  // }
 })

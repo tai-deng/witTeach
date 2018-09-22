@@ -1,9 +1,9 @@
 <!--index.wxml-->
     <view class="in-container">
     <swiper indicator-dots="true" indicator-color="#fff" indicator-active-color="rgba(255, 102, 51, 0.8)" autoplay="true" circular="true">
-        <block wx:for="{{basic.img}}"wx:key="*this">
+        <block wx:for="{{data.img}}"wx:key="*this">
             <swiper-item>
-                <image src="{{item}}" catchtap="bindslide" data-id="{{basic.article_id[index]}}" class="slide-image" width="355" height="150"/>
+                <image src="{{item}}" catchtap="bindslide" data-id="{{data.article_id[index]}}" class="slide-image" width="355" height="150"/>
             </swiper-item>
         </block>
     </swiper>
@@ -15,14 +15,14 @@
         <view class="in-school-top rows">
             <view class="in-school-l">
                 <view class="in-school-name">
-                    {{basic.name}}
+                    {{data.name}}
                 </view>
-                <view class="in-school-loc flexrow"bindtap="bindloc"data-latitude="{{basic.latitude}}"data-longitude="{{basic.longitude}}">
+                <view class="in-school-loc flexrow"bindtap="bindloc"data-latitude="{{data.latitude}}"data-longitude="{{data.longitude}}">
                     <image src="../imgs/loc.png"></image>
-                    <text>{{basic.area}}{{basic.address}}</text>
+                    <text>{{data.area}}{{data.address}}</text>
                 </view>
             </view>
-            <view class="in-school-r" bindtap="bindCall"data-phone="{{basic.tel}}">
+            <view class="in-school-r" bindtap="bindCall"data-phone="{{data.tel}}">
                 <image src="../imgs/phone.png"></image>
             </view>
         </view>
@@ -36,7 +36,7 @@
         </view>
         <view class="in-school-intro-war"wx:if="{{more==2}}">
             <view class="in-school-intro-cet">
-                {{basic.content}}
+                {{data.content}}
             </view>
             <view class="in-school-away row"bindtap="bindaway">
                 收起简介
@@ -86,9 +86,9 @@
             </view>
         </view>
     </view>
-    <view class="in-nearby"wx:if="{{basic.campus[0]}}"><view class="in-bar"></view>附近校区</view>
+    <view class="in-nearby"wx:if="{{data.campus[0]}}"><view class="in-bar"></view>附近校区</view>
     <view class="in-school-details">
-        <view class="in-school-details-i"wx:for="{{basic.campus}}"wx:key="*this">
+        <view class="in-school-details-i"wx:for="{{data.campus}}"wx:key="*this">
             <view class="in-nearby-pic">
                 <image src="{{item.image}}"></image>
             </view>
@@ -121,7 +121,7 @@
                 <image src="../imgs/off.png"bindtap="bindtoastoff"></image>
             </view>
             <view class="in-toast-type-inb flexrow"wx:if="{{apply==3}}">
-                学校名称：{{basic.name}}
+                学校名称：{{data.name}}
             </view>
             <view class="in-toast-type-inb flexrow"wx:if="{{apply==3}}">
                 课程名称：{{coursename}}

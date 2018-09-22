@@ -145,18 +145,18 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    var user_id = bs.cache("user_id")
-    var id = this.data.id;
-    /* if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    } */
-    return {
-      imageUrl:"../../../imgs/a.jpg",
-      title: '机器人培训班',
-      // path: `pages/terrace/terrace?user_id=${user_id}&id=${id}`
-      path: `pages/shareIn/shareIn?id=${id}&user_id=${user_id}&target=article`
-    }
-  }
+  // onShareAppMessage: function () {
+  //   var user_id = bs.cache("user_id")
+  //   var id = this.data.id;
+  //   /* if (res.from === 'button') {
+  //     // 来自页面内转发按钮
+  //     console.log(res.target)
+  //   } */
+  //   return {
+  //     imageUrl:"../../../imgs/a.jpg",
+  //     title: '机器人培训班',
+  //     // path: `pages/terrace/terrace?user_id=${user_id}&id=${id}`
+  //     path: `pages/shareIn/shareIn?id=${id}&user_id=${user_id}&target=article`
+  //   }
+  // }
 })

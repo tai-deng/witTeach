@@ -36,19 +36,6 @@ Page({
       withShareTicket: true
     })
   },
-  // // 获取数据
-  // getData(id) {
-  //   var that = this;
-  //   request.request({
-  //     site: "School",
-  //     data: {
-  //       school_id:id
-  //     }
-  //   }, function (res) { 
-  //     that.setData({data:res,id})
-  //     that.getTab(1,id);
-  //   })
-  // },
   // 获取默认数据
   getData(id) {
     bs.setTitle("机构详情");
@@ -369,7 +356,7 @@ payment(e){
     }
   },function(res){
       wx.hideNavigationBarLoading()
-      // if(res.status){
+      let type = res.type;
         wx.showLoading({
           title: '支付中',
         })
@@ -389,6 +376,7 @@ payment(e){
               });
               that.setData({name:null,phone:null,org:null,toast:2})
               that.getData(that.data.id)
+              bs.cache("tip", type);
             }
           },
           'complete':function(e){

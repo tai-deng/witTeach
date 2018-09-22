@@ -224,11 +224,15 @@ button::after{
     right: 30rpx;
     bottom: 126rpx;
     z-index: 1;
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
     background-color: #fff;
 }
 .in-money>image{
     width: 64rpx;
     height: 64rpx;
+    border-radius: 50%;
     display: block;
 }
 

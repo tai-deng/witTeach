@@ -129,11 +129,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var id = 111;
+    var id = this.data.school_id;
     return {
       imageUrl:"../../imgs/a.jpg",
       title: '老师端分享',
-      path: `/pages/login/login?id=${id}`
+      path: `/pages/shareIn/shareIn?id=${id}`
     }
   }
 })

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/manage/teacher/teacher",
     "pages/login/login",
     "pages/port4/port4",
     "pages/manage/manage",
@@ -8,7 +9,6 @@
     "pages/article/article",
     "pages/advisory/advisory",
     "pages/indent/indent",
-    "pages/manage/teacher/teacher",
     "pages/manage/record/record",
     "pages/texture/texture",
     "pages/texture/textureSetting/textureSetting",

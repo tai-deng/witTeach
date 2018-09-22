@@ -145,6 +145,7 @@ Page({
 
     }) */
     return {
+      imageUrl:"../imgs/a.jpg",
       title: '期待您的加入',
       path: `/pages/login/login`
     }
