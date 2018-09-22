@@ -112,19 +112,9 @@ Page({
     })
   },
   // 导航
-  bindloc(e){
-    wx.getLocation({
-      type: 'gcj02',
-      success: function(res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        wx.openLocation({
-          latitude: latitude,
-          longitude: longitude,
-          scale: 28
-        })
-      }
-    })
+  // 定位获取当前位置
+  bindloc(e) {
+    bs.openLocation(e);
   },
   // 咨询预约
   bindconsult(e){
@@ -155,13 +145,15 @@ Page({
     // }
     this.bindshunt();
   },
-    // 录入机构名称
-  bindtitle(e){
-    console.log(e)
+  // 录入机构名称
+  bindtitle(e) {
+    var name = e.detail.value.trim();
+    this.setData({ name });
   },
-    // 录入机构电话
+  // 录入机构电话
   bindphone(e){
-    console.log(e)
+    var phone = e.detail.value.trim();
+    this.setData({ phone });
   },
   // 机构类型
   bindtype(e){
@@ -185,86 +177,65 @@ Page({
     })
   },
   // 提交 1.机构入驻 2.推荐学生 3.购买课程
-  bindsubmit(e) {
-    let usertel = bs.cache("user_phone")
-    var org = this.data.org;      // 机构类型
-    var title = e.detail.value.title;  // 姓名
-    var phone = e.detail.value.phone;  // 电话
-    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+  bindsubmit(e){
+    var org = this.data.org;
+    var name = this.data.name;
+    var phone = this.data.phone;
     var that = this;
-    var id = this.data.school_id;
-    console.log(org,title,phone)
-    if (this.data.apply == 3) {
-      if (title && myreg.test(phone)) {
+    var id = bs.cache("otherUerId");
+    var orgtype_id = this.data.orgtype_id;
+    if (/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,40}$/.test(name) && /^1[34578]\d{9}$/.test(phone)) {
+      if (this.data.apply == 3) {
         this.payment();
-      } else {
-        if (!myreg.test(phone)) {
-          request.toast('请确认手机号码')
-        }
-        if (!title) {
-          request.toast('请确认姓名')
+      }
+      if(this.data.apply == 1){
+        if (org) {
+          request.request({
+            site: "Apply",
+            data: {
+              type: orgtype_id,
+              name: name,
+              tel: phone,
+            }
+          }, function (res) {
+            that.setData({name:null,phone:null,org:null,toast:2})
+          })
+        } else {
+          wx.showToast({
+            title: '请选择机构类型',
+            icon: 'none',
+            duration: 2000
+          })
         }
       }
-    }
-    if (this.data.apply == 1) {
-      if (title && myreg.test(phone) && org) {
+      if(this.data.apply == 2){
+        console.log("user_id--2",id)
         request.request({
-          site: "Apply",
+          site: "Consultation",
           data: {
-            type: org,
-            name: title,
-            tel: phone,
-            school_id:id,
+            user_id: id,
+            name: name,
+            tel:phone
           }
         }, function (res) {
-          that.setData({ flag: false ,toast:2})
-          wx.showModal({
-            title: '提示',
-            showCancel:false,
-            content: "入驻信息提交成功！",
-            success: function(res) {
-            }
-          })
+          that.setData({name:null,phone:null,org:null,toast:2})
         })
-      } else {
-        if (!org) {
-          request.toast('请确认机构类型')
-        }
-        if (!myreg.test(phone)) {
-          request.toast('请确认手机号码')
-        }
-        if (!title) {
-          request.toast('请确认机构名称')
-        }
       }
-    }
-    if (this.data.apply == 2) {
-      if (title && myreg.test(phone)) {
-        request.request({
-          site: "Recommend",
-          data: {
-            school_id: id,
-            name: title,
-            tel: phone,
-            usertel
-          }
-        }, function (res) {
-          that.setData({ data: res, flag: false ,toast:2})
-          wx.showModal({
-            title: '提示',
-            showCancel:false,
-            content: "推荐信息提交成功！",
-            success: function(res) {
-            }
-          })
+    } else {
+      console.log(name,phone)
+      if (!/^1[34578]\d{9}$/.test(phone)) {
+        wx.showToast({
+          title: '请输入正确的联系方式',
+          icon: 'none',
+          duration: 2000
         })
-      } else {
-        if (!myreg.test(phone)) {
-          request.toast('请确认手机号码')
-        }
-        if (!title) {
-          request.toast('请确认姓名')
-        }
+      }
+      if (!/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,40}$/.test(name)) {
+        wx.showToast({
+          title: '请输入正确的名称',
+          icon: 'none',
+          duration: 2000
+        })
       }
     }
   },

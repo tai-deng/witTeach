@@ -139,10 +139,10 @@
                     优惠价格：<text>{{price}}元</text>
                 </view>
                 <view class="in-toast-type-in row">
-                    <input type="text"placeholder="{{placeholder}}"placeholder-style="color:#999;font-size:30rpx;" name="title"/>
+                    <input type="text"placeholder="{{placeholder}}"placeholder-style="color:#999;font-size:30rpx;" name="title"bindinput="bindtitle"/>
                 </view>
                 <view class="in-toast-type-in row">
-                    <input type="number"placeholder="请输入联系电话"placeholder-style="color:#999;font-size:30rpx;" name="phone"/>
+                    <input type="number"placeholder="请输入联系电话"placeholder-style="color:#999;font-size:30rpx;" name="phone"bindinput="bindphone"/>
                 </view>
                 <view class="in-toast-type-in"wx:if="{{apply==1}}">
                     <picker bindchange="bindtype"value="{{index}}"range="{{orgtype}}">

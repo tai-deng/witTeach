@@ -18,11 +18,11 @@ const systemInfo = (size,self) => {
 }
 // 打开内置地图
 const openLocation = (loc) => {
-  var longitude = parseFloat(loc.currentTarget.dataset.latitude);
-  var latitude = parseFloat(loc.currentTarget.dataset.longitude);
+  var latitude = Number(loc.currentTarget.dataset.latitude);
+  var longitude = Number(loc.currentTarget.dataset.longitude);
   wx.openLocation({
-    latitude: latitude,
     longitude: longitude,
+    latitude: latitude,
     scale: 28
   })
 }

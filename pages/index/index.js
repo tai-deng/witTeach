@@ -85,6 +85,7 @@ Page({
             longitude,
           }
         }, function (res) {
+          console.log('22222222222222',res.data.latitude)
           that.setData({ basic: res, id: res.id });
           bs.cache("schoolId",id);
           that.getTab(1, res.id);
