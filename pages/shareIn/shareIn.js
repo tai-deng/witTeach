@@ -78,7 +78,7 @@ Page({
     wx.login({
       success(res){
         wx.request({
-          url: "https://hj.wocon.cn/sign_in",
+          url: "https://hjw.wocon.cn/sign_in",
           data: {
             iv: iv,
             encrypted_data: encryptedData,

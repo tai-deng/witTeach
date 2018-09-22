@@ -1,7 +1,7 @@
 
 import bs from './base.js';
 const config = {
-  url: "https://hj.wocon.cn/",
+  url: "https://hjw.wocon.cn/",
     cid: "547a339ff29f2d584dga25471ffac9bf1ad",
 }
 //api/Huijiao

@@ -120,7 +120,7 @@ Page({
     var code = app.globalData.code;
     if (userInfo && auth) {
         wx.request({
-          url: "https://hj.wocon.cn/sign_in",
+          url: "https://hjw.wocon.cn/sign_in",
           data: {
             iv: iv,
             encrypted_data: encryptedData,
